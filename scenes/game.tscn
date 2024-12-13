@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ds6w76a7jv4qb" path="res://assets/sprites/world_tileset.png" id="1_6ofw6"]
 [ext_resource type="PackedScene" uid="uid://bjs2xcg2uneim" path="res://scenes/player.tscn" id="2_g78kj"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jj8km"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbnii"]
 texture = ExtResource("1_6ofw6")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -140,7 +140,7 @@ texture = ExtResource("1_6ofw6")
 
 [sub_resource type="TileSet" id="TileSet_x03hu"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_jj8km")
+sources/0 = SubResource("TileSetAtlasSource_dbnii")
 
 [node name="game" type="Node2D"]
 
