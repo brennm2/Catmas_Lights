@@ -4,21 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://csrxqdiu0ibpo" path="res://icon.svg" id="1_j088a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bkhkj"]
-size = Vector2(12, 30)
+size = Vector2(12, 19)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_0thsw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -2.38419e-07)
-scale = Vector2(0.0996094, 0.246094)
+position = Vector2(1, 4.37501)
+scale = Vector2(0.0996094, 0.177734)
 texture = ExtResource("1_j088a")
 
 [node name="coyote_timer" type="Timer" parent="."]
 wait_time = 0.126
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(1, 5.5)
 shape = SubResource("RectangleShape2D_bkhkj")
 
 [connection signal="timeout" from="coyote_timer" to="." method="coyote_timeout"]
