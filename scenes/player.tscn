@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bv6nw0lu0bvkc" path="res://assets/sprites/playerCat.png" id="5_ow055"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bkhkj"]
+
 size = Vector2(18, 14)
 
 [sub_resource type="Animation" id="Animation_4ayhb"]
@@ -882,6 +883,7 @@ collision_mask = 3
 script = ExtResource("1_0thsw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
 visible = false
 position = Vector2(-1.19209e-07, 0)
 scale = Vector2(0.174805, 0.246094)
@@ -892,6 +894,7 @@ hframes = 6
 wait_time = 0.126
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_bkhkj")
 

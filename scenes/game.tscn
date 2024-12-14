@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://12xjyfvraau" path="res://assets/forestBackground/forest_back.png" id="3_ca26y"]
 [ext_resource type="PackedScene" uid="uid://c8hd1qi46qlw6" path="res://scenes/enemyPresent.tscn" id="4_vr5me"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jj8km"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbnii"]
 texture = ExtResource("1_6ofw6")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -142,7 +142,7 @@ texture = ExtResource("1_6ofw6")
 
 [sub_resource type="TileSet" id="TileSet_x03hu"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_jj8km")
+sources/0 = SubResource("TileSetAtlasSource_dbnii")
 
 [node name="game" type="Node2D"]
 
