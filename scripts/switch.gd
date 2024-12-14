@@ -2,8 +2,7 @@ extends Node2D
 
 @onready var on: Sprite2D = $on
 @onready var off: Sprite2D = $off
-@export_flags("tutorial", "lvl_2", "boss") var lvl = 1
-
+@export_enum("tutorial", "lvl_2", "boss") var lvl = 0
 var in_area: bool = false
 var light_on: bool = false
 var in_free_area: bool = false
