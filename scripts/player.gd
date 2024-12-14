@@ -132,7 +132,7 @@ func _physics_process(delta):
 	
 
 func _on_idle_sleep_timer_timeout() -> void:
-	if (Globals.canLightScale != false): #MUDAR ISSO PARA ==
+	if (Globals.canLightScale == false): #MUDAR ISSO PARA ==
 		playerStartSleeping = true 
 	
 func _on_animated_sprite_2d_animation_finished() -> void:
