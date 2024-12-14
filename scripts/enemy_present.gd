@@ -2,7 +2,7 @@ extends Area2D
 
 # Timer before explosion
 @export var explosion_time: float = 2
-@export var explosion_damage: int = 2.5
+@export var explosion_damage: float = 2.5
 
 # Sound streams
 @export var beep_sound: AudioStream

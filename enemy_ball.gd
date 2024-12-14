@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var raycast: RayCast2D = $RayCast2D  # RayCast to detect player beneath
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D  # Collision shape for overlapping player
-@export var damage: int = 2
+@export var damage: float = 2
 @export var drop_speed: float  # Drop speed in pixels per second
 
 var is_dropping = false  # Tracks if the ball is currently dropping

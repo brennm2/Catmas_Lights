@@ -203,5 +203,5 @@ func _on_animated_sprite_2d_animation_changed() -> void:
 	else:
 		%sfx_player.stop()
 	
-func apply_damage(damage: int):
+func apply_damage(damage: float):
 	Globals.lightScale -= damage
