@@ -146,7 +146,7 @@ sources/0 = SubResource("TileSetAtlasSource_jj8km")
 [node name="game" type="Node2D"]
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(-14, -621)
+position = Vector2(-11, -486)
 texture = ExtResource("3_ca26y")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -161,5 +161,5 @@ position = Vector2(1, 1)
 zoom = Vector2(3.5, 3.5)
 position_smoothing_enabled = true
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="DarkLight" type="CanvasModulate" parent="."]
 color = Color(0.0235294, 0.0235294, 0.0235294, 1)
