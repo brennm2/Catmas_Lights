@@ -16,6 +16,12 @@ func _process(_delta: float) -> void:
 		off.visible = false
 		on.visible = true
 		light_on = true
+		if lvl == 0:
+			Globals.tutorial += 1
+		if lvl == 1:
+			Globals.lvl_2 += 1
+		if lvl == 2:
+			Globals.boss += 1
 	if light_on and in_free_area:
 		Globals.canLightScale = false
 

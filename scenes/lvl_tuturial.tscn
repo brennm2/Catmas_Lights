@@ -862,8 +862,11 @@ position = Vector2(77, -233)
 position = Vector2(-630, -219)
 
 [node name="lvl_up" type="Area2D" parent="."]
+collision_mask = 5
 script = ExtResource("6_y13wa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lvl_up"]
 position = Vector2(168, -239)
 shape = SubResource("RectangleShape2D_gusvb")
+
+[connection signal="body_entered" from="lvl_up" to="lvl_up" method="_on_body_entered"]
