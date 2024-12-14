@@ -11,7 +11,7 @@
 size = Vector2(10, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bkhkj"]
-size = Vector2(10, 14)
+size = Vector2(12, 15)
 
 [sub_resource type="Animation" id="Animation_4ayhb"]
 resource_name = "walking"

@@ -43,6 +43,7 @@ func _physics_process(delta):
 		player_light.texture_scale -= 0.1 * delta
 		Globals.lightScale = player_light.texture_scale
 	elif (is_dead == false && player_light.texture_scale < 0.7):
+
 		is_dead = true
 		animation.play("cat_death")
 
@@ -163,8 +164,6 @@ func _on_timer_timeout() -> void:
 	change_light_texture()
 		
 		
-
-
 func _on_interaction_timer_timeout() -> void:
 	if playerCanInteract == false:
 		playerCanInteract = true
@@ -204,3 +203,5 @@ func _on_animated_sprite_2d_animation_changed() -> void:
 	else:
 		%sfx_player.stop()
 	
+func apply_damage(damage: int):
+	player_light.texture_scale -= damage

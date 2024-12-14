@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://d6on3muc45qs"]
+[gd_scene load_steps=11 format=4 uid="uid://d6on3muc45qs"]
 
 [ext_resource type="Texture2D" uid="uid://dfqvlvde1cp2o" path="res://assets/sprites/world_2.png" id="1_0griw"]
 [ext_resource type="Script" path="res://scripts/lvl_tuturial.gd" id="1_g7wmt"]
-[ext_resource type="PackedScene" uid="uid://bjs2xcg2uneim" path="res://scenes/player.tscn" id="2_pogu2"]
-[ext_resource type="PackedScene" uid="uid://b1dn6tgo6d11r" path="res://scenes/switch.tscn" id="4_hjk75"]
+[ext_resource type="PackedScene" uid="uid://bjs2xcg2uneim" path="res://scenes/player.tscn" id="4_gbj4n"]
+[ext_resource type="PackedScene" path="res://scenes/switch.tscn" id="4_hjk75"]
 [ext_resource type="PackedScene" uid="uid://c8hd1qi46qlw6" path="res://scenes/enemyPresent.tscn" id="5_4ymaw"]
+[ext_resource type="PackedScene" uid="uid://cagpovx3xuuog" path="res://scenes/enemyBall.tscn" id="6_xflgq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f5jjh"]
 texture = ExtResource("1_0griw")
@@ -806,15 +807,19 @@ tile_set = SubResource("TileSet_15u64")
 [node name="Switch" parent="." instance=ExtResource("4_hjk75")]
 position = Vector2(-360, -138)
 
-[node name="player" parent="." instance=ExtResource("2_pogu2")]
-position = Vector2(-902, -59)
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_gbj4n")]
+position = Vector2(68, -10)
 
-[node name="Camera2D" type="Camera2D" parent="player"]
-position = Vector2(1, 6)
-zoom = Vector2(3.5, 3.5)
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(8, 25)
+zoom = Vector2(2.86, 2.86)
+limit_bottom = 25
 
 [node name="Area2D" parent="." instance=ExtResource("5_4ymaw")]
 position = Vector2(8, -136)
 
 [node name="DarkLight" type="CanvasModulate" parent="."]
 color = Color(0.0235294, 0.0235294, 0.0235294, 1)
+
+[node name="RigidBody2D" parent="." instance=ExtResource("6_xflgq")]
+position = Vector2(-31, -89)
