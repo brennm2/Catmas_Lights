@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bv6nw0lu0bvkc" path="res://assets/sprites/playerCat.png" id="5_ow055"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bkhkj"]
-size = Vector2(10, 14)
+size = Vector2(12, 15)
 
 [sub_resource type="Animation" id="Animation_4ayhb"]
 resource_name = "walking"
@@ -884,7 +884,7 @@ script = ExtResource("1_0thsw")
 wait_time = 0.126
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_bkhkj")
 
 [node name="playerLight" type="PointLight2D" parent="."]
