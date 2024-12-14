@@ -6,8 +6,9 @@
 [ext_resource type="AudioStream" uid="uid://cktxurnsmbbbm" path="res://assets/timebombbeep-93074.mp3" id="3_cuc0a"]
 [ext_resource type="Texture2D" uid="uid://bn63g6eiultj3" path="res://assets/explosion tutorial files/explosion tutorial files/explosion.png" id="4_vgcg0"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s13ae"]
-radius = 46.0652
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wxk5p"]
+radius = 13.0
+height = 65.9514
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2m8ky"]
 atlas = ExtResource("4_vgcg0")
@@ -93,7 +94,9 @@ beep_sound = ExtResource("3_cuc0a")
 explosion_sound = ExtResource("3_5x4t3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_s13ae")
+position = Vector2(1, -6)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wxk5p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xqp3f")

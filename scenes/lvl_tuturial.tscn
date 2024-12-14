@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://scripts/tuturial_lvl_up.gd" id="6_y13wa"]
 
 [sub_resource type="GDScript" id="GDScript_vcgsh"]
-script/source = "extends Node2D
-"
+script/source = "extends Node2D"
+[ext_resource type="PackedScene" uid="uid://cagpovx3xuuog" path="res://scenes/enemyBall.tscn" id="6_xflgq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f5jjh"]
 texture = ExtResource("1_0griw")
@@ -831,9 +831,9 @@ tile_set = SubResource("TileSet_15u64")
 z_index = 5
 position = Vector2(162, -12)
 
-[node name="Camera2D" type="Camera2D" parent="player"]
-position = Vector2(1, 6)
-zoom = Vector2(3.5, 3.5)
+[node name="RigidBody2D" parent="." instance=ExtResource("6_xflgq")]
+position = Vector2(-31, -89)
+drop_speed = 150.0
 
 [node name="Switch" parent="." instance=ExtResource("4_hjk75")]
 position = Vector2(-360, -138)
