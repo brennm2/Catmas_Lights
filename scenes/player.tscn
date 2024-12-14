@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://bjs2xcg2uneim"]
+[gd_scene load_steps=117 format=3 uid="uid://bjs2xcg2uneim"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0thsw"]
 [ext_resource type="AudioStream" uid="uid://bv6u5f1ph4xwc" path="res://assets/sounds/cat-purring.mp3" id="2_iw4kr"]
@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://iwdcgpibys3x" path="res://assets/sounds/cat_death.mp3" id="3_hat76"]
 [ext_resource type="AudioStream" uid="uid://byva3o412n8l5" path="res://assets/sounds/footStep.mp3" id="4_523mt"]
 [ext_resource type="Texture2D" uid="uid://bv6nw0lu0bvkc" path="res://assets/sprites/playerCat.png" id="5_ow055"]
+[ext_resource type="AudioStream" uid="uid://btt0k5unu1xqf" path="res://assets/sounds/interact.mp3" id="7_55tf7"]
+[ext_resource type="AudioStream" uid="uid://scvdi62l2a4l" path="res://assets/sounds/jump.mp3" id="7_crj1w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0184i"]
 size = Vector2(10, 22)
@@ -826,6 +828,7 @@ shape = SubResource("RectangleShape2D_bkhkj")
 blend_mode = 2
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 2
 texture = ExtResource("3_gl56c")
 texture_scale = 5.0
 
@@ -858,6 +861,12 @@ bus = &"Sfx"
 [node name="footStep" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_523mt")
 bus = &"Sfx"
+
+[node name="jumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_crj1w")
+
+[node name="interactSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_55tf7")
 
 [connection signal="timeout" from="coyote_timer" to="." method="coyote_timeout"]
 [connection signal="timeout" from="playerLight/Timer" to="." method="_on_timer_timeout"]

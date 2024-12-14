@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://5wil1cbfnf6h"]
+[gd_scene load_steps=17 format=4 uid="uid://5wil1cbfnf6h"]
 
 [ext_resource type="Texture2D" uid="uid://dfqvlvde1cp2o" path="res://assets/sprites/world_2.png" id="1_0griw"]
 [ext_resource type="PackedScene" uid="uid://bjs2xcg2uneim" path="res://scenes/player.tscn" id="2_pogu2"]
@@ -356,6 +356,15 @@ texture = ExtResource("1_0griw")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_f5jjh")
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yx5c4"]
+polygon = PackedVector2Array(-1.75, -8, 2, -8, 2, 8, -1.875, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_f7jsd"]
+polygon = PackedVector2Array(-1.75, -8, 2, -8, 2, 8, -1.875, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dxkxc"]
+polygon = PackedVector2Array(-1.75, -8, 2, -8, 2, 8, -1.875, 8)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gdwnp"]
 texture = ExtResource("1_0griw")
 2:0/0 = 0
@@ -539,8 +548,11 @@ texture = ExtResource("1_0griw")
 9:7/0 = 0
 9:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, -8, 8, 8, -2, 8, -8, 8)
 10:7/0 = 0
+10:7/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_yx5c4")
 11:7/0 = 0
+11:7/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_f7jsd")
 12:7/0 = 0
+12:7/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_dxkxc")
 15:7/0 = 0
 17:7/0 = 0
 18:7/0 = 0
@@ -799,8 +811,18 @@ texture = ExtResource("1_0griw")
 24:24/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_15u64"]
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gdwnp")
+
+[sub_resource type="Environment" id="Environment_2o4xh"]
+background_mode = 3
+tonemap_mode = 2
+tonemap_exposure = 0.55
+glow_enabled = true
+glow_blend_mode = 1
+glow_hdr_threshold = 0.0
+glow_hdr_scale = 0.89
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gusvb"]
 size = Vector2(23, 25.5)
@@ -831,7 +853,7 @@ tile_set = SubResource("TileSet_15u64")
 
 [node name="player" parent="." instance=ExtResource("2_pogu2")]
 z_index = 5
-position = Vector2(-729, -31)
+position = Vector2(-554, -230)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(1, 6)
@@ -860,6 +882,9 @@ position = Vector2(77, -233)
 
 [node name="light_refill2" parent="." instance=ExtResource("6_4fg2h")]
 position = Vector2(-630, -219)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2o4xh")
 
 [node name="lvl_up" type="Area2D" parent="."]
 collision_mask = 5

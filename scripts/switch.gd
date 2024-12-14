@@ -23,6 +23,7 @@ func _process(_delta: float) -> void:
 		if lvl == 2:
 			Globals.boss += 1
 	if light_on and in_free_area:
+		
 		Globals.canLightScale = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

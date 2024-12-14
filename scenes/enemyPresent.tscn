@@ -73,7 +73,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6n4ik")
 }],
-"loop": true,
+"loop": false,
 "name": &"exploding",
 "speed": 5.0
 }, {
@@ -100,12 +100,12 @@ shape = SubResource("CapsuleShape2D_wxk5p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xqp3f")
-animation = &"idle"
-frame_progress = 0.231389
+animation = &"exploding"
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_cuc0a")
+stream = ExtResource("3_5x4t3")
+bus = &"Sfx"
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
