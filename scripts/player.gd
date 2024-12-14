@@ -31,6 +31,7 @@ func _physics_process(delta):
 	if (player_light.texture_scale > 0.7):
 		player_light.texture_scale -= 0.1 * delta
 	elif (is_dead == false):
+		player_light.texture_scale = 0.8
 		is_dead = true
 		animation.play("cat_death")
 
@@ -123,3 +124,5 @@ func _on_timer_timeout() -> void:
 	change_light_texture()
 		
 		
+func apply_damage(damage: int):
+	player_light.texture_scale -= damage
