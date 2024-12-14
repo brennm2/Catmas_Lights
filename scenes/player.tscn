@@ -1,9 +1,14 @@
-[gd_scene load_steps=123 format=3 uid="uid://bjs2xcg2uneim"]
+[gd_scene load_steps=115 format=3 uid="uid://bjs2xcg2uneim"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0thsw"]
+[ext_resource type="AudioStream" uid="uid://bv6u5f1ph4xwc" path="res://assets/sounds/cat-purring.mp3" id="2_iw4kr"]
 [ext_resource type="Texture2D" uid="uid://bo1apkewodhcd" path="res://assets/sprites/light1.png" id="3_gl56c"]
-[ext_resource type="Texture2D" uid="uid://vosu6g014w7x" path="res://assets/sprites/Mage_.png" id="4_xa5gn"]
+[ext_resource type="AudioStream" uid="uid://iwdcgpibys3x" path="res://assets/sounds/cat_death.mp3" id="3_hat76"]
+[ext_resource type="AudioStream" uid="uid://byva3o412n8l5" path="res://assets/sounds/footStep.mp3" id="4_523mt"]
 [ext_resource type="Texture2D" uid="uid://bv6nw0lu0bvkc" path="res://assets/sprites/playerCat.png" id="5_ow055"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0184i"]
+size = Vector2(10, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bkhkj"]
 size = Vector2(12, 15)
@@ -87,10 +92,6 @@ region = Rect2(192, 1185, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_uxwwt"]
 atlas = ExtResource("5_ow055")
 region = Rect2(224, 1185, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6eeps"]
-atlas = ExtResource("5_ow055")
-region = Rect2(128, 1217, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mplyb"]
 atlas = ExtResource("5_ow055")
@@ -416,46 +417,6 @@ region = Rect2(192, 353, 32, 32)
 atlas = ExtResource("5_ow055")
 region = Rect2(224, 353, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7cl34"]
-atlas = ExtResource("4_xa5gn")
-region = Rect2(0, 192, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g58no"]
-atlas = ExtResource("4_xa5gn")
-region = Rect2(128, 192, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eepns"]
-atlas = ExtResource("4_xa5gn")
-region = Rect2(256, 192, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p5cm3"]
-atlas = ExtResource("4_xa5gn")
-region = Rect2(384, 192, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_prelg"]
-atlas = ExtResource("4_xa5gn")
-region = Rect2(512, 192, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0cb0k"]
-atlas = ExtResource("4_xa5gn")
-region = Rect2(640, 192, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fh1ss"]
-atlas = ExtResource("4_xa5gn")
-region = Rect2(768, 192, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y5oe4"]
-atlas = ExtResource("4_xa5gn")
-region = Rect2(896, 192, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q54on"]
-atlas = ExtResource("4_xa5gn")
-region = Rect2(1024, 192, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xchtk"]
-atlas = ExtResource("4_xa5gn")
-region = Rect2(1152, 192, 128, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_xdtys"]
 atlas = ExtResource("5_ow055")
 region = Rect2(0, 193, 32, 32)
@@ -530,7 +491,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_uxwwt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6eeps")
+"texture": null
 }],
 "loop": false,
 "name": &"cat_death",
@@ -551,7 +512,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_bvpg6")
 }, {
 "duration": 1.0,
@@ -563,7 +524,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yr3mm")
 }],
-"loop": true,
+"loop": false,
 "name": &"cat_interact",
 "speed": 10.0
 }, {
@@ -824,41 +785,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7cl34")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g58no")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eepns")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p5cm3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_prelg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0cb0k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fh1ss")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y5oe4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q54on")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xchtk")
-}],
-"loop": true,
-"name": &"run",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_xdtys")
 }, {
 "duration": 1.0,
@@ -879,12 +805,21 @@ animations = [{
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_0thsw")
+sfx_cat_purring = ExtResource("2_iw4kr")
+sfx_cat_death = ExtResource("3_hat76")
+sfx_footStep = ExtResource("4_523mt")
 
 [node name="coyote_timer" type="Timer" parent="."]
 wait_time = 0.126
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+[node name="playerCollisionJumping" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_0184i")
+disabled = true
+debug_color = Color(0.953105, 3.85046e-07, 0.555263, 0.42)
+
+[node name="playerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_bkhkj")
 
 [node name="playerLight" type="PointLight2D" parent="."]
@@ -902,17 +837,32 @@ libraries = {
 "": SubResource("AnimationLibrary_6l0la")
 }
 
+[node name="interaction_timer" type="Timer" parent="."]
+wait_time = 0.5
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_tm4jt")
-animation = &"cat_hit"
+animation = &"run_cat"
+autoplay = "idle_cat"
 frame = 2
-frame_progress = 1.0
+frame_progress = 0.824054
 
 [node name="idle_sleep_timer" type="Timer" parent="AnimatedSprite2D"]
 wait_time = 5.0
 
+[node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+bus = &"Sfx"
+
+[node name="footStep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_523mt")
+bus = &"Sfx"
+
 [connection signal="timeout" from="coyote_timer" to="." method="coyote_timeout"]
 [connection signal="timeout" from="playerLight/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="interaction_timer" to="." method="_on_interaction_timer_timeout"]
+[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="timeout" from="AnimatedSprite2D/idle_sleep_timer" to="." method="_on_idle_sleep_timer_timeout"]
