@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cagpovx3xuuog"]
+[gd_scene load_steps=16 format=3 uid="uid://cagpovx3xuuog"]
 
 [ext_resource type="Script" path="res://scenes/enemy_ball.gd" id="1_kn6ws"]
 [ext_resource type="Texture2D" uid="uid://b5rwvf64hji4d" path="res://assets/spritesheet.png" id="1_tqhfl"]
@@ -84,14 +84,11 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_r4yav"]
 radius = 9.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yfwec"]
-radius = 11.8933
-
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="Area2D" type="Area2D"]
 collision_layer = 2
 collision_mask = 5
-mass = 0.001
 script = ExtResource("1_kn6ws")
+drop_speed = 200.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wjtil")
@@ -109,15 +106,3 @@ shape = SubResource("CircleShape2D_r4yav")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 75)
 collision_mask = 7
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(0, 1)
-scale = Vector2(0.876044, 0.84)
-collision_layer = 2
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(0.7717, 1)
-shape = SubResource("CircleShape2D_yfwec")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
