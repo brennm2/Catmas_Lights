@@ -9,9 +9,12 @@
 
 [sub_resource type="GDScript" id="GDScript_vcgsh"]
 script/source = "extends Node2D
+
+func _ready() -> void:
+	pass
 "
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f5jjh"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h5kaw"]
 texture = ExtResource("1_0griw")
 2:0/0 = 0
 3:0/0 = 0
@@ -354,9 +357,9 @@ texture = ExtResource("1_0griw")
 
 [sub_resource type="TileSet" id="TileSet_1p81g"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_f5jjh")
+sources/0 = SubResource("TileSetAtlasSource_h5kaw")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gdwnp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3qac0"]
 texture = ExtResource("1_0griw")
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -800,7 +803,7 @@ texture = ExtResource("1_0griw")
 
 [sub_resource type="TileSet" id="TileSet_15u64"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_gdwnp")
+sources/0 = SubResource("TileSetAtlasSource_3qac0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gusvb"]
 size = Vector2(23, 25.5)
