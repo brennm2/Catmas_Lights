@@ -28,9 +28,11 @@ func _ready() -> void:
 	timer.start()
 
 func _physics_process(delta):
-	if (player_light.texture_scale > 0.7):
+	player_light.texture_scale = Globals.lightScale
+	if (player_light.texture_scale > 0.7 && Globals.canLightScale):
 		player_light.texture_scale -= 0.1 * delta
-	elif (is_dead == false):
+		Globals.lightScale = player_light.texture_scale
+	elif (is_dead == false && player_light.texture_scale == 0.7):
 		is_dead = true
 		animation.play("cat_death")
 
