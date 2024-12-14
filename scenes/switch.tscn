@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1dn6tgo6d11r"]
+[gd_scene load_steps=5 format=3 uid="uid://b1dn6tgo6d11r"]
 
 [ext_resource type="Texture2D" uid="uid://ds6w76a7jv4qb" path="res://assets/sprites/world_tileset.png" id="1_4t6he"]
-[ext_resource type="Script" path="res://scripts/switch.gd" id="1_tgb1u"]
+[ext_resource type="Script" path="res://scripts/switch.gd" id="1_gtdco"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p0o46"]
 radius = 17.0294
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fai03"]
+radius = 110.368
+
 [node name="Switch" type="Node2D"]
-script = ExtResource("1_tgb1u")
+script = ExtResource("1_gtdco")
 
 [node name="off" type="Sprite2D" parent="."]
 texture = ExtResource("1_4t6he")
@@ -25,4 +28,13 @@ collision_mask = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_p0o46")
 
+[node name="free_light" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="free_light"]
+shape = SubResource("CircleShape2D_fai03")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="free_light" to="." method="_on_free_light_body_entered"]
+[connection signal="body_exited" from="free_light" to="." method="_on_free_light_body_exited"]

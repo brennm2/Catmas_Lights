@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dojd1b30oysnd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03ssk"]
+size = Vector2(26, 55)
+
+[node name="level_up_door" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, -1.5)
+shape = SubResource("RectangleShape2D_03ssk")
