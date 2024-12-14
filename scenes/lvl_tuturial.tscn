@@ -807,6 +807,13 @@ tile_set = SubResource("TileSet_15u64")
 [node name="Switch" parent="." instance=ExtResource("4_hjk75")]
 position = Vector2(-360, -138)
 
+[node name="Area2D" parent="." instance=ExtResource("5_4ymaw")]
+position = Vector2(16, -9)
+
+[node name="RigidBody2D" parent="." instance=ExtResource("6_xflgq")]
+position = Vector2(-31, -89)
+drop_speed = 150.0
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_gbj4n")]
 position = Vector2(68, -10)
 
@@ -815,11 +822,5 @@ position = Vector2(8, 25)
 zoom = Vector2(2.86, 2.86)
 limit_bottom = 25
 
-[node name="Area2D" parent="." instance=ExtResource("5_4ymaw")]
-position = Vector2(8, -136)
-
 [node name="DarkLight" type="CanvasModulate" parent="."]
 color = Color(0.0235294, 0.0235294, 0.0235294, 1)
-
-[node name="RigidBody2D" parent="." instance=ExtResource("6_xflgq")]
-position = Vector2(-31, -89)

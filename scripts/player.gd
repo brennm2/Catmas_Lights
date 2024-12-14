@@ -85,7 +85,7 @@ func _physics_process(delta):
 	# get direction
 	var direction = Input.get_axis("move_left", "move_right")
 	
-	if (direction != 0 and self.is_on_floor()):
+	if (direction != 0 and self.is_on_floor() and !is_dead):
 		foot_step.pitch_scale = randf_range(1.05, 1.1)
 		if (not foot_step.playing):
 			foot_step.play()
@@ -204,4 +204,4 @@ func _on_animated_sprite_2d_animation_changed() -> void:
 		%sfx_player.stop()
 	
 func apply_damage(damage: int):
-	player_light.texture_scale -= damage
+	Globals.lightScale -= damage
