@@ -1,14 +1,12 @@
-[gd_scene load_steps=124 format=3 uid="uid://bjs2xcg2uneim"]
+[gd_scene load_steps=123 format=3 uid="uid://bjs2xcg2uneim"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0thsw"]
-[ext_resource type="Texture2D" uid="uid://cniyyq3iyxr1t" path="res://assets/sprites/Player.png" id="2_ml5e1"]
 [ext_resource type="Texture2D" uid="uid://bo1apkewodhcd" path="res://assets/sprites/light1.png" id="3_gl56c"]
 [ext_resource type="Texture2D" uid="uid://vosu6g014w7x" path="res://assets/sprites/Mage_.png" id="4_xa5gn"]
 [ext_resource type="Texture2D" uid="uid://bv6nw0lu0bvkc" path="res://assets/sprites/playerCat.png" id="5_ow055"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bkhkj"]
-
-size = Vector2(18, 14)
+size = Vector2(10, 14)
 
 [sub_resource type="Animation" id="Animation_4ayhb"]
 resource_name = "walking"
@@ -882,19 +880,10 @@ collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_0thsw")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-visible = false
-position = Vector2(-1.19209e-07, 0)
-scale = Vector2(0.174805, 0.246094)
-texture = ExtResource("2_ml5e1")
-hframes = 6
-
 [node name="coyote_timer" type="Timer" parent="."]
 wait_time = 0.126
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_bkhkj")
 

@@ -20,6 +20,7 @@ region_enabled = true
 region_rect = Rect2(79.7, 96.1113, 16.3347, 16.4918)
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_p0o46")
