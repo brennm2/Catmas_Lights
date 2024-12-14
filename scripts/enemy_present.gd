@@ -31,6 +31,7 @@ func _ready():
 	animated_sprite.play("idle")
 
 func _on_body_entered(body):
+	print(body)
 	if body.is_in_group("player"):  # Ensure it's the player
 		if not is_exploding:
 			is_exploding = true

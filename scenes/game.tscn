@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://dt00kkjbap10y"]
+[gd_scene load_steps=7 format=4 uid="uid://dt00kkjbap10y"]
 
 [ext_resource type="Texture2D" uid="uid://ds6w76a7jv4qb" path="res://assets/sprites/world_tileset.png" id="1_6ofw6"]
 [ext_resource type="PackedScene" uid="uid://bjs2xcg2uneim" path="res://scenes/player.tscn" id="2_g78kj"]
 [ext_resource type="Texture2D" uid="uid://12xjyfvraau" path="res://assets/forestBackground/forest_back.png" id="3_ca26y"]
+[ext_resource type="PackedScene" uid="uid://c8hd1qi46qlw6" path="res://scenes/enemyPresent.tscn" id="4_vr5me"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jj8km"]
 texture = ExtResource("1_6ofw6")
@@ -154,7 +155,7 @@ tile_map_data = PackedByteArray("AAD6/wEAAAAAAAAAAAD7/wEAAAAAAAAAAAD8/wEAAAAAAAA
 tile_set = SubResource("TileSet_x03hu")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_g78kj")]
-position = Vector2(1, -84)
+position = Vector2(-72, -84)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(1, 1)
@@ -163,3 +164,6 @@ position_smoothing_enabled = true
 
 [node name="DarkLight" type="CanvasModulate" parent="."]
 color = Color(0.0235294, 0.0235294, 0.0235294, 1)
+
+[node name="Area2D" parent="." instance=ExtResource("4_vr5me")]
+position = Vector2(55, -39)

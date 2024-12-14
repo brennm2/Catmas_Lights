@@ -875,8 +875,6 @@ animations = [{
 "name": &"run_cat",
 "speed": 15.0
 }]
-=======
-size = Vector2(12, 29)
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 collision_layer = 4
@@ -895,8 +893,6 @@ wait_time = 0.126
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
-=======
-position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_bkhkj")
 
 [node name="playerLight" type="PointLight2D" parent="."]
