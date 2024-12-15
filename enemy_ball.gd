@@ -10,6 +10,7 @@ extends Area2D
 
 var is_dropping = false  # Tracks if the ball is currently dropping
 var can_drop = true
+var can_damage = true
 
 func _ready():
 	# Ensure the RayCast2D is enabled
@@ -36,11 +37,13 @@ func _on_body_entered(body: Node) -> void:
 		if body.has_method("apply_damage"):
 			var tempPosition = position.y
 			can_drop = false
-			body.apply_damage(damage)
-			enemy_ball_hit_sound.play()
-			animated_sprite_2d.play("exploding")
-			is_dropping = false
-			position.y = tempPosition
+			if (can_damage == true):
+				body.apply_damage(damage)
+				can_damage = false
+				enemy_ball_hit_sound.play()
+				animated_sprite_2d.play("exploding")
+				is_dropping = false
+				position.y = tempPosition
 		# Destroy the ball
 		timer.start()
 

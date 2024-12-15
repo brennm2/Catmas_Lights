@@ -37,9 +37,9 @@ region = Rect2(192, 0, 32, 32)
 atlas = ExtResource("1_tqhfl")
 region = Rect2(224, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oo17y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7oi1l"]
 atlas = ExtResource("2_xdxdo")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(128, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wjtil"]
 animations = [{
@@ -74,7 +74,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oo17y")
+"texture": SubResource("AtlasTexture_7oi1l")
 }],
 "loop": true,
 "name": &"idle",
@@ -100,15 +100,14 @@ drop_speed = 200.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wjtil")
-animation = &"exploding"
+animation = &"idle"
 autoplay = "idle"
-frame = 7
-frame_progress = 1.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 scale = Vector2(0.88, 0.8)
 shape = SubResource("CircleShape2D_r4yav")
 

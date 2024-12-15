@@ -16,5 +16,5 @@ func _on_body_entered(body: Node2D) -> void:
 	print(Globals.lvl_2)
 	print(body)
 	if body.is_in_group("player"):
-		if Globals.lvl_2 == 0:
+		if Globals.lvl_2 == 4:
 			get_tree().change_scene_to_packed(LVL_BOSS)
