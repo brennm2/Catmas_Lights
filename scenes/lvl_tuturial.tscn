@@ -10,11 +10,12 @@
 
 [sub_resource type="GDScript" id="GDScript_vcgsh"]
 script/source = "extends Node2D
+
+func _ready() -> void:
+	pass
 "
 
-[sub_resource type="Theme" id="Theme_crbmc"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f5jjh"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h5kaw"]
 texture = ExtResource("1_0griw")
 2:0/0 = 0
 3:0/0 = 0
@@ -357,18 +358,9 @@ texture = ExtResource("1_0griw")
 
 [sub_resource type="TileSet" id="TileSet_1p81g"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_f5jjh")
+sources/0 = SubResource("TileSetAtlasSource_h5kaw")
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yx5c4"]
-polygon = PackedVector2Array(-1.75, -8, 2, -8, 2, 8, -1.875, 8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_f7jsd"]
-polygon = PackedVector2Array(-1.75, -8, 2, -8, 2, 8, -1.875, 8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dxkxc"]
-polygon = PackedVector2Array(-1.75, -8, 2, -8, 2, 8, -1.875, 8)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gdwnp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3qac0"]
 texture = ExtResource("1_0griw")
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -816,7 +808,7 @@ texture = ExtResource("1_0griw")
 [sub_resource type="TileSet" id="TileSet_15u64"]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_gdwnp")
+sources/0 = SubResource("TileSetAtlasSource_3qac0")
 
 [sub_resource type="Environment" id="Environment_2o4xh"]
 background_mode = 3
