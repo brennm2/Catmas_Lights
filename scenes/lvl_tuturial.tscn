@@ -868,7 +868,7 @@ tile_set = SubResource("TileSet_15u64")
 
 [node name="player" parent="." instance=ExtResource("2_pogu2")]
 z_index = 5
-position = Vector2(-7, -220)
+position = Vector2(159, -8)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(1, 6)
@@ -877,8 +877,16 @@ limit_left = -1100
 limit_right = 400
 limit_smoothed = true
 
-[node name="Switch" parent="." instance=ExtResource("4_hjk75")]
+[node name="Switches" type="Node2D" parent="."]
+
+[node name="Switch" parent="Switches" instance=ExtResource("4_hjk75")]
 position = Vector2(-360, -138)
+
+[node name="Switch2" parent="Switches" instance=ExtResource("4_hjk75")]
+position = Vector2(-865, -8)
+
+[node name="Switch3" parent="Switches" instance=ExtResource("4_hjk75")]
+position = Vector2(77, -232)
 
 [node name="bomb" parent="." instance=ExtResource("5_4ymaw")]
 position = Vector2(-346, -248)
@@ -888,12 +896,6 @@ color = Color(0.0235294, 0.0235294, 0.0235294, 1)
 
 [node name="light_refill" parent="." instance=ExtResource("6_4fg2h")]
 position = Vector2(-423, -135)
-
-[node name="Switch2" parent="." instance=ExtResource("4_hjk75")]
-position = Vector2(-865, -8)
-
-[node name="Switch3" parent="." instance=ExtResource("4_hjk75")]
-position = Vector2(77, -232)
 
 [node name="light_refill2" parent="." instance=ExtResource("6_4fg2h")]
 position = Vector2(-630, -219)

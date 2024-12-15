@@ -12,5 +12,5 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		if Globals.tutorial == 0:
+		if Globals.tutorial == 3:
 			get_tree().change_scene_to_packed(LVL_2)
