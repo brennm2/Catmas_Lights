@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://co8q5c0xvnjlb"]
+[gd_scene load_steps=22 format=3 uid="uid://co8q5c0xvnjlb"]
 
 [ext_resource type="Script" path="res://scripts/light_refill.gd" id="1_tbyvn"]
 [ext_resource type="Texture2D" uid="uid://c83mvxmqpan41" path="res://assets/sprites/stone.png" id="2_nufud"]
 [ext_resource type="AudioStream" uid="uid://c52jmd6k42qor" path="res://assets/sounds/grab_stone.wav" id="3_p35en"]
+[ext_resource type="Texture2D" uid="uid://3qw5mpfnsvj1" path="res://assets/sprites/2d_lights_and_shadows_neutral_point_light.webp" id="4_284yi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ybk4"]
 atlas = ExtResource("2_nufud")
@@ -216,4 +217,14 @@ libraries = {
 "": SubResource("AnimationLibrary_8c4fn")
 }
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.615686, 0.0901961, 0.164706, 1)
+energy = 1.5
+texture = ExtResource("4_284yi")
+texture_scale = 0.1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

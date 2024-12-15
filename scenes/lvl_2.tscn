@@ -1289,7 +1289,14 @@ texture = ExtResource("1_bpxet")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_w8qcf")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t7rt"]
+[sub_resource type="Environment" id="Environment_58oss"]
+background_mode = 3
+tonemap_mode = 2
+tonemap_exposure = 0.55
+glow_enabled = true
+glow_blend_mode = 1
+glow_hdr_threshold = 0.0
+glow_hdr_scale = 0.89
 
 [node name="lvl_2" type="Node2D"]
 script = ExtResource("1_60dmq")
@@ -1359,6 +1366,7 @@ script = null
 
 [node name="player" parent="." instance=ExtResource("2_3juia")]
 z_index = 5
+
 position = Vector2(-1776, -9)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -1520,6 +1528,9 @@ position = Vector2(-675, -537)
 
 [node name="boom6" parent="Node" instance=ExtResource("9_42w25")]
 position = Vector2(-597, -537)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_58oss")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-18, -693)

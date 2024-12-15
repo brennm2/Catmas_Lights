@@ -4,8 +4,12 @@ extends Area2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D  # Collision shape for overlapping player
 @export var damage: float = 2
 @export var drop_speed: float  # Drop speed in pixels per second
+@onready var enemy_ball_hit_sound: AudioStreamPlayer2D = $enemyBallHitSound
+@onready var timer: Timer = $Timer
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var is_dropping = false  # Tracks if the ball is currently dropping
+var can_drop = true
 
 func _ready():
 	# Ensure the RayCast2D is enabled
@@ -15,7 +19,7 @@ func _ready():
 	self.connect("body_entered", self._on_body_entered)
 
 func _process(delta):
-	if raycast.is_colliding() and raycast.get_collider().is_in_group("player") and not is_dropping:
+	if raycast.is_colliding() and raycast.get_collider().is_in_group("player") and not is_dropping and can_drop:
 		# Start dropping when the player is detected beneath
 		is_dropping = true
 
@@ -30,6 +34,16 @@ func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		# Apply damage to the player
 		if body.has_method("apply_damage"):
+			var tempPosition = position.y
+			can_drop = false
 			body.apply_damage(damage)
+			enemy_ball_hit_sound.play()
+			animated_sprite_2d.play("exploding")
+			is_dropping = false
+			position.y = tempPosition
 		# Destroy the ball
-		queue_free()
+		timer.start()
+
+
+func _on_timer_timeout() -> void:
+	queue_free()

@@ -22,6 +22,8 @@ var texture_number = 0
 @onready var interact_sound: AudioStreamPlayer2D = $interactSound
 @onready var current_animation = animation.get_animation()
 @onready var jump_sound: AudioStreamPlayer2D = $jumpSound
+@onready var hit_timer: Timer = $AnimatedSprite2D/hit_timer
+@onready var cat_hit: AudioStreamPlayer2D = $catHit
 
 var footstep_frames : Array = [1]
 var is_dead = false
@@ -31,6 +33,7 @@ var playerSleeping = false
 var playerJumping = false
 var playerMoving = false
 var playerCanInteract = true
+var playerCanTakeHit = true
 
 var LIGHT_1 = preload("res://assets/sprites/light1.png")
 var LIGHT_2 = preload("res://assets/sprites/light2.png")
@@ -63,7 +66,8 @@ func _physics_process(delta):
 			playerJumping = false
 			player_collision_jumping.disabled = true
 			player_collision.disabled = false
-			animation.play("idle_cat_2")
+			if (!is_dead):
+				animation.play("idle_cat_2")
 		coyote_timer.stop()
 	
 	if (Input.is_action_pressed("interaction") and playerCanInteract and is_on_floor()):
@@ -84,7 +88,7 @@ func _physics_process(delta):
 			animation.play("cat_jumping_move")
 		playerJumping = true
 		player_collision_jumping.disabled = false
-		player_collision.disabled = true
+		player_collision.disabled = false
 		jump_sound.play()
 		jump_sound.pitch_scale = randf_range(0.50, 0.60)
 		idle_sleep_timer.start()
@@ -93,7 +97,7 @@ func _physics_process(delta):
 	var direction = Input.get_axis("move_left", "move_right")
 	
 	if (direction != 0 and self.is_on_floor() and !is_dead and playerCanInteract):
-		foot_step.pitch_scale = randf_range(1.05, 1.1)
+		foot_step.pitch_scale = randf_range(0.6, 1.5)
 		if (not foot_step.playing):
 			foot_step.play()
 	else:
@@ -108,11 +112,8 @@ func _physics_process(delta):
 		else:
 			animation.flip_h = false
 		if (is_dead == false):
-			if (not playerJumping):
+			if (not playerJumping && playerCanTakeHit):
 				animation.play("run_cat")
-				
-				
-			
 			velocity.x = direction * SPEED
 			change_idle = true
 			playerStartSleeping = false
@@ -121,17 +122,17 @@ func _physics_process(delta):
 		if (is_dead == false && playerCanInteract):
 			playerMoving = false
 			var random_number = randi_range(1, 2)
-			if (random_number == 1 && change_idle == true && playerJumping == false):
+			if (random_number == 1 && change_idle == true && playerJumping == false && playerCanTakeHit):
 				idle_sleep_timer.start()
 				animation.play("idle_cat")
 				change_idle = false
-			elif (random_number == 2 && change_idle == true && playerJumping == false):
+			elif (random_number == 2 && change_idle == true && playerJumping == false && playerCanTakeHit):
 				idle_sleep_timer.start()
 				animation.play("idle_cat_2")
 				change_idle = false
-			elif(playerStartSleeping == true && playerSleeping == false && playerJumping == false):
+			elif(playerStartSleeping == true && playerSleeping == false && playerJumping == false && playerCanTakeHit):
 				animation.play("idle_cat_sleep")
-			elif(playerSleeping == true):
+			elif(playerSleeping == true && playerCanTakeHit):
 				animation.play("idle_cat_sleep_loop")
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		else:
@@ -184,7 +185,6 @@ func play_sfx(sfx_to_load):
 	load_sfx(sfx_to_load)
 	if not %sfx_player.playing:
 		%sfx_player.play()
-		print(%sfx_player.stream)
 	else:
 		if %sfx_player.playing:
 			pass
@@ -212,4 +212,16 @@ func _on_animated_sprite_2d_animation_changed() -> void:
 		%sfx_player.stop()
 	
 func apply_damage(damage: float):
+	#animation.stop()
+	hit_timer.start()
 	Globals.lightScale -= damage
+	playerCanTakeHit = false
+	if (Globals.lightScale > 0.7):
+		cat_hit.play()
+		animation.play("cat_hit")
+	else:
+		Globals.lightScale = 0.7
+
+
+func _on_hit_timer_timeout() -> void:
+	playerCanTakeHit = true
