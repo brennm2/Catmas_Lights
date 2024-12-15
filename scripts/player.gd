@@ -82,7 +82,7 @@ func _physics_process(delta):
 			animation.play("cat_jumping_move")
 		playerJumping = true
 		player_collision_jumping.disabled = false
-		player_collision.disabled = true
+		player_collision.disabled = false
 		jump_sound.play()
 		jump_sound.pitch_scale = randf_range(0.50, 0.60)
 		idle_sleep_timer.start()
