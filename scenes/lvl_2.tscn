@@ -1499,7 +1499,6 @@ position = Vector2(82, -9)
 lvl = 1
 
 [node name="DarkLight" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0235294, 0.0235294, 0.0235294, 1)
 
 [node name="Node" type="Node" parent="."]

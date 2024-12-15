@@ -906,7 +906,7 @@ collision_mask = 5
 script = ExtResource("6_y13wa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lvl_up"]
-position = Vector2(161.5, -245.5)
+position = Vector2(177, -245)
 shape = SubResource("RectangleShape2D_gusvb")
 
 [node name="Death Screen" parent="." instance=ExtResource("7_ynx2j")]
