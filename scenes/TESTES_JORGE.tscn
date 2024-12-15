@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bnvimufc8w58l"]
+[gd_scene load_steps=19 format=4 uid="uid://bnvimufc8w58l"]
 
 [ext_resource type="Texture2D" uid="uid://dfqvlvde1cp2o" path="res://assets/sprites/world_2.png" id="1_uh4eo"]
 [ext_resource type="PackedScene" uid="uid://bjs2xcg2uneim" path="res://scenes/player.tscn" id="2_3iams"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://co8q5c0xvnjlb" path="res://scenes/light_refill.tscn" id="5_dobv3"]
 [ext_resource type="Script" path="res://scripts/tuturial_lvl_up.gd" id="6_88kka"]
 [ext_resource type="PackedScene" uid="uid://bq7b70qslmq06" path="res://deathScreen.tscn" id="7_hiyj1"]
+[ext_resource type="PackedScene" uid="uid://dlww73340lo4k" path="res://scenes/winning_screen.tscn" id="8_14q5r"]
 
 [sub_resource type="GDScript" id="GDScript_vcgsh"]
 script/source = "extends Node2D
@@ -868,7 +869,7 @@ tile_set = SubResource("TileSet_15u64")
 
 [node name="player" parent="." instance=ExtResource("2_3iams")]
 z_index = 5
-position = Vector2(-447, -252)
+position = Vector2(160, -9)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(1, 6)
@@ -913,6 +914,8 @@ position = Vector2(168, -239)
 shape = SubResource("RectangleShape2D_gusvb")
 
 [node name="Death Screen" parent="." instance=ExtResource("7_hiyj1")]
+
+[node name="Control" parent="." instance=ExtResource("8_14q5r")]
 
 [connection signal="player_died" from="player" to="Death Screen" method="_on_player_player_died"]
 [connection signal="body_entered" from="lvl_up" to="lvl_up" method="_on_body_entered"]
