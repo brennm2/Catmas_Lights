@@ -840,7 +840,7 @@ glow_hdr_threshold = 0.0
 glow_hdr_scale = 0.89
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gusvb"]
-size = Vector2(23, 25.5)
+size = Vector2(43, 43)
 
 [node name="lvl_tuturial" type="Node2D"]
 script = SubResource("GDScript_vcgsh")
@@ -868,7 +868,7 @@ tile_set = SubResource("TileSet_15u64")
 
 [node name="player" parent="." instance=ExtResource("2_pogu2")]
 z_index = 5
-position = Vector2(153, -8)
+position = Vector2(-7, -220)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(1, 6)
@@ -906,7 +906,7 @@ collision_mask = 5
 script = ExtResource("6_y13wa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lvl_up"]
-position = Vector2(168, -239)
+position = Vector2(161.5, -245.5)
 shape = SubResource("RectangleShape2D_gusvb")
 
 [node name="Death Screen" parent="." instance=ExtResource("7_ynx2j")]

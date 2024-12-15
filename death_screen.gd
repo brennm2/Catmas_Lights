@@ -19,11 +19,8 @@ func _process(delta: float) -> void:
 
 func _on_player_player_died() -> void:
 	canvas_layer.show()
-	print("HEEEEEEEEEEEEEEELP")
-
 
 func _on_button_pressed() -> void:
-	print("PRESSED")
 	if Globals.current_scene_path:
 		get_tree().change_scene_to_file(Globals.current_scene_path)
 		Globals.lightScale = 5
