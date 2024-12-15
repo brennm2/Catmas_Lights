@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b1dn6tgo6d11r" path="res://scenes/switch.tscn" id="6_xbh2y"]
 [ext_resource type="PackedScene" uid="uid://c8hd1qi46qlw6" path="res://scenes/enemyPresent.tscn" id="9_42w25"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g0ral"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6r3dk"]
 texture = ExtResource("1_bpxet")
 2:0/0 = 0
 3:0/0 = 0
@@ -353,9 +353,9 @@ texture = ExtResource("1_bpxet")
 
 [sub_resource type="TileSet" id="TileSet_oe5r2"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_g0ral")
+sources/0 = SubResource("TileSetAtlasSource_6r3dk")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_msnkg"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fjlrl"]
 texture = ExtResource("1_bpxet")
 2:0/0 = 0
 3:0/0 = 0
@@ -697,7 +697,7 @@ texture = ExtResource("1_bpxet")
 23:24/0 = 0
 24:24/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q6770"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v62l1"]
 texture = ExtResource("2_ly2qv")
 0:0/0 = 0
 1:0/0 = 0
@@ -830,10 +830,10 @@ texture = ExtResource("2_ly2qv")
 
 [sub_resource type="TileSet" id="TileSet_fd2dg"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_msnkg")
-sources/1 = SubResource("TileSetAtlasSource_q6770")
+sources/0 = SubResource("TileSetAtlasSource_fjlrl")
+sources/1 = SubResource("TileSetAtlasSource_v62l1")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8qcf"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fkim4"]
 texture = ExtResource("1_bpxet")
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1284,7 +1284,7 @@ texture = ExtResource("1_bpxet")
 
 [sub_resource type="TileSet" id="TileSet_iorac"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_w8qcf")
+sources/0 = SubResource("TileSetAtlasSource_fkim4")
 
 [sub_resource type="Environment" id="Environment_58oss"]
 background_mode = 3
