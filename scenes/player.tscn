@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://bjs2xcg2uneim"]
+[gd_scene load_steps=118 format=3 uid="uid://bjs2xcg2uneim"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0thsw"]
 [ext_resource type="AudioStream" uid="uid://bv6u5f1ph4xwc" path="res://assets/sounds/cat-purring.mp3" id="2_iw4kr"]
@@ -8,12 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://bv6nw0lu0bvkc" path="res://assets/sprites/playerCat.png" id="5_ow055"]
 [ext_resource type="AudioStream" uid="uid://btt0k5unu1xqf" path="res://assets/sounds/interact.mp3" id="7_55tf7"]
 [ext_resource type="AudioStream" uid="uid://scvdi62l2a4l" path="res://assets/sounds/jump.mp3" id="7_crj1w"]
+[ext_resource type="AudioStream" uid="uid://d071tytsl3tqg" path="res://assets/sounds/cat_hit.mp3" id="8_8kdbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0184i"]
 size = Vector2(10, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bkhkj"]
-size = Vector2(12, 15)
+size = Vector2(12, 14.5)
 
 [sub_resource type="Animation" id="Animation_4ayhb"]
 resource_name = "walking"
@@ -503,10 +504,10 @@ animations = [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_mplyb")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_grwoq")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_mplyb")
 }],
 "loop": false,
@@ -821,7 +822,7 @@ disabled = true
 debug_color = Color(0.953105, 3.85046e-07, 0.555263, 0.42)
 
 [node name="playerCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 0.75)
 shape = SubResource("RectangleShape2D_bkhkj")
 
 [node name="playerLight" type="PointLight2D" parent="."]
@@ -846,13 +847,16 @@ wait_time = 0.5
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_tm4jt")
-animation = &"run_cat"
+animation = &"cat_hit"
 autoplay = "idle_cat"
 frame = 2
-frame_progress = 0.824054
+frame_progress = 1.0
 
 [node name="idle_sleep_timer" type="Timer" parent="AnimatedSprite2D"]
 wait_time = 5.0
+
+[node name="hit_timer" type="Timer" parent="AnimatedSprite2D"]
+wait_time = 0.5
 
 [node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
@@ -867,6 +871,9 @@ bus = &"Sfx"
 stream = ExtResource("7_crj1w")
 volume_db = -4.274
 
+[node name="catHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_8kdbk")
+
 [node name="interactSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_55tf7")
 
@@ -877,3 +884,4 @@ stream = ExtResource("7_55tf7")
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="timeout" from="AnimatedSprite2D/idle_sleep_timer" to="." method="_on_idle_sleep_timer_timeout"]
+[connection signal="timeout" from="AnimatedSprite2D/hit_timer" to="." method="_on_hit_timer_timeout"]
