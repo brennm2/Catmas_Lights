@@ -25,4 +25,4 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		body.apply_damage(2)
+		body.apply_damage(5)

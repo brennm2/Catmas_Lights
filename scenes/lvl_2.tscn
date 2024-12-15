@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b1dn6tgo6d11r" path="res://scenes/switch.tscn" id="6_xbh2y"]
 [ext_resource type="PackedScene" uid="uid://c8hd1qi46qlw6" path="res://scenes/enemyPresent.tscn" id="9_42w25"]
 [ext_resource type="Script" path="res://scenes/level_up.gd" id="11_jgoxm"]
-[ext_resource type="PackedScene" path="res://deathScreen.tscn" id="12_df172"]
+[ext_resource type="PackedScene" uid="uid://bq7b70qslmq06" path="res://deathScreen.tscn" id="12_df172"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6r3dk"]
 texture = ExtResource("1_bpxet")
