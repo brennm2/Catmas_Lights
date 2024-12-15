@@ -1,6 +1,5 @@
-[gd_scene load_steps=21 format=4 uid="uid://i8xlqnkf0iln"]
+[gd_scene load_steps=18 format=4 uid="uid://i8xlqnkf0iln"]
 
-[ext_resource type="Script" path="res://scenes/lvl_2.gd" id="1_60dmq"]
 [ext_resource type="Texture2D" uid="uid://dfqvlvde1cp2o" path="res://assets/sprites/world_2.png" id="1_bpxet"]
 [ext_resource type="PackedScene" uid="uid://bjs2xcg2uneim" path="res://scenes/player.tscn" id="2_3juia"]
 [ext_resource type="Texture2D" uid="uid://ds6w76a7jv4qb" path="res://assets/sprites/world_tileset.png" id="2_ly2qv"]
@@ -10,8 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://co8q5c0xvnjlb" path="res://scenes/light_refill.tscn" id="5_01cov"]
 [ext_resource type="PackedScene" uid="uid://b1dn6tgo6d11r" path="res://scenes/switch.tscn" id="6_xbh2y"]
 [ext_resource type="PackedScene" uid="uid://c8hd1qi46qlw6" path="res://scenes/enemyPresent.tscn" id="9_42w25"]
-[ext_resource type="Script" path="res://scenes/level_up.gd" id="10_kpk24"]
-[ext_resource type="PackedScene" uid="uid://bq7b70qslmq06" path="res://deathScreen.tscn" id="11_bbiii"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g0ral"]
 texture = ExtResource("1_bpxet")
@@ -1299,8 +1296,6 @@ glow_hdr_threshold = 0.0
 glow_hdr_scale = 0.89
 
 [node name="lvl_2" type="Node2D"]
-script = ExtResource("1_60dmq")
-scene_path = "res://scenes/lvl_2.tscn"
 metadata/_edit_horizontal_guides_ = [-1283.0]
 metadata/_edit_vertical_guides_ = [-1872.0]
 
@@ -1366,8 +1361,7 @@ script = null
 
 [node name="player" parent="." instance=ExtResource("2_3juia")]
 z_index = 5
-
-position = Vector2(-1776, -9)
+position = Vector2(-436, -9)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(1, 6)
@@ -1531,17 +1525,3 @@ position = Vector2(-597, -537)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_58oss")
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-18, -693)
-scale = Vector2(2.38937, 1.91498)
-collision_mask = 5
-script = ExtResource("10_kpk24")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_8t7rt")
-
-[node name="Death Screen" parent="." instance=ExtResource("11_bbiii")]
-
-[connection signal="player_died" from="player" to="Death Screen" method="_on_player_player_died"]
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

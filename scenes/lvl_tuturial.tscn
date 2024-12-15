@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://5wil1cbfnf6h"]
+[gd_scene load_steps=22 format=4 uid="uid://5wil1cbfnf6h"]
 
 [ext_resource type="Texture2D" uid="uid://dfqvlvde1cp2o" path="res://assets/sprites/world_2.png" id="1_0griw"]
 [ext_resource type="Texture2D" uid="uid://bjjwu74ts2wa8" path="res://assets/anim_light1.png" id="2_awaah"]
@@ -1280,7 +1280,6 @@ position = Vector2(77, -232)
 position = Vector2(-346, -248)
 
 [node name="DarkLight" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0235294, 0.0235294, 0.0235294, 1)
 
 [node name="light_refill" parent="." instance=ExtResource("6_4fg2h")]
