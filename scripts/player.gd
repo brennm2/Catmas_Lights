@@ -41,12 +41,13 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	player_light.texture_scale = Globals.lightScale
-	if (player_light.texture_scale > 0.7 && Globals.canLightScale):
+	if (player_light.texture_scale > 0.7 && Globals.canLightScale && is_dead == false):
 		player_light.texture_scale -= 0.1 * delta
 		Globals.lightScale = player_light.texture_scale
 	elif (is_dead == false && player_light.texture_scale < 0.7):
 
 		is_dead = true
+		Globals.lightScale = 1
 		animation.play("cat_death")
 
 	if not is_on_floor():
