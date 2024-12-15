@@ -847,10 +847,8 @@ wait_time = 0.5
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_tm4jt")
-animation = &"cat_hit"
+animation = &"cat_interact"
 autoplay = "idle_cat"
-frame = 2
-frame_progress = 1.0
 
 [node name="idle_sleep_timer" type="Timer" parent="AnimatedSprite2D"]
 wait_time = 5.0

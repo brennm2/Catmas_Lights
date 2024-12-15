@@ -1,24 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://lox3161erffk"]
 
 [ext_resource type="Script" path="res://scripts/spikes.gd" id="1_lrt56"]
-[ext_resource type="Texture2D" uid="uid://ds6w76a7jv4qb" path="res://assets/sprites/world_tileset.png" id="2_i4wxi"]
+[ext_resource type="Texture2D" uid="uid://b0a0dw5slr08g" path="res://assets/environment.png" id="2_b1swc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kimry"]
-size = Vector2(16, 5)
+size = Vector2(48, 16)
 
 [node name="Spikes" type="Node2D"]
 script = ExtResource("1_lrt56")
 
 [node name="spike" type="Sprite2D" parent="."]
-texture = ExtResource("2_i4wxi")
+texture = ExtResource("2_b1swc")
 region_enabled = true
-region_rect = Rect2(80.0825, 144.115, 15.9286, 15.9197)
+region_rect = Rect2(303.44, 15, 49.1014, 16.8781)
 
 [node name="death" type="Area2D" parent="."]
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death"]
-position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_kimry")
 
 [node name="Timer" type="Timer" parent="."]
