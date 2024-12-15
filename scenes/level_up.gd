@@ -1,5 +1,6 @@
 extends Area2D
 
+const LVL_BOSS = preload("res://scenes/lvl_boss.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,7 +13,8 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	print(Globals.lvl_2)
+	print(body)
 	if body.is_in_group("player"):
 		if Globals.lvl_2 == 0:
-			print("LOAD LAST LEVEL")
-			#get_tree().change_scene_to_packed(LVL_2)
+			get_tree().change_scene_to_packed(LVL_BOSS)

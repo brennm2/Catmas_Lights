@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=4 uid="uid://c3ljkatrquuon"]
+[gd_scene load_steps=19 format=4 uid="uid://c3ljkatrquuon"]
 
+[ext_resource type="Script" path="res://scenes/lvl_boss.gd" id="1_hp3xv"]
 [ext_resource type="Texture2D" uid="uid://dfqvlvde1cp2o" path="res://assets/sprites/world_2.png" id="1_u5dir"]
 [ext_resource type="Texture2D" uid="uid://ds6w76a7jv4qb" path="res://assets/sprites/world_tileset.png" id="2_m0cdx"]
 [ext_resource type="PackedScene" uid="uid://bjs2xcg2uneim" path="res://scenes/player.tscn" id="3_lex80"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cagpovx3xuuog" path="res://scenes/enemyBall.tscn" id="6_llwsp"]
 [ext_resource type="PackedScene" uid="uid://co8q5c0xvnjlb" path="res://scenes/light_refill.tscn" id="7_2g3ot"]
 [ext_resource type="PackedScene" uid="uid://b1dn6tgo6d11r" path="res://scenes/switch.tscn" id="8_6fpks"]
+[ext_resource type="PackedScene" uid="uid://bq7b70qslmq06" path="res://deathScreen.tscn" id="10_rclj0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0qk0r"]
 texture = ExtResource("1_u5dir")
@@ -1287,6 +1289,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_pefnb")
 
 [node name="lvl_boss" type="Node2D"]
+script = ExtResource("1_hp3xv")
+scene_path = "res://scenes/lvl_boss.tscn"
 
 [node name="map" type="Node2D" parent="."]
 
@@ -1513,3 +1517,7 @@ position = Vector2(-759, -818)
 
 [node name="Slime" parent="." instance=ExtResource("3_vhlnt")]
 position = Vector2(-850, -948)
+
+[node name="Death Screen" parent="." instance=ExtResource("10_rclj0")]
+
+[connection signal="player_died" from="player" to="Death Screen" method="_on_player_player_died"]
