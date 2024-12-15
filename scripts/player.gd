@@ -24,6 +24,7 @@ var texture_number = 0
 @onready var jump_sound: AudioStreamPlayer2D = $jumpSound
 @onready var hit_timer: Timer = $AnimatedSprite2D/hit_timer
 @onready var cat_hit: AudioStreamPlayer2D = $catHit
+@onready var music_of_terror: AudioStreamPlayer2D = $music_of_terror
 
 var footstep_frames : Array = [1]
 var is_dead = false
@@ -44,17 +45,20 @@ func _ready() -> void:
 	timer.start()
 
 func _physics_process(delta):
+	
 	player_light.texture_scale = Globals.lightScale
 	if (player_light.texture_scale > .7 && Globals.canLightScale && is_dead == false):
 		player_light.texture_scale -= 0.1 * delta
 		Globals.lightScale = player_light.texture_scale
 	elif (is_dead == false && player_light.texture_scale < 0.7):
-
 		is_dead = true
 		player_died.emit()
 		Globals.lightScale = 1
 		animation.play("cat_death")
-
+	
+	var volume = (5.0 - Globals.lightScale) / 2
+	music_of_terror.volume_db = lerp(-20, 0, volume)
+	
 	if not is_on_floor():
 		if jump_available:
 			if coyote_timer.is_stopped():
