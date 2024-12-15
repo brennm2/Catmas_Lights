@@ -72,6 +72,7 @@ func _on_timer_timeout():
 	var free_timer = Timer.new()
 	free_timer.one_shot = true
 	free_timer.wait_time = 1.6   # Match the animation duration
+	animated_sprite.animation_finished
 	add_child(free_timer)
 	free_timer.timeout.connect(_on_free_timer_timeout)
 	free_timer.start()

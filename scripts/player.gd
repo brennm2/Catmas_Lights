@@ -95,7 +95,8 @@ func _physics_process(delta):
 			foot_step.play()
 	else:
 		if (foot_step.playing):
-			foot_step.stop()
+			#foot_step.stop()
+			pass
 	# move speed and animation
 	if direction and !is_dead && playerCanInteract:
 		playerMoving = true

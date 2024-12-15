@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1dn6tgo6d11r"]
+[gd_scene load_steps=7 format=3 uid="uid://b1dn6tgo6d11r"]
 
 [ext_resource type="Texture2D" uid="uid://ds6w76a7jv4qb" path="res://assets/sprites/world_tileset.png" id="1_4t6he"]
 [ext_resource type="Script" path="res://scripts/switch.gd" id="1_gtdco"]
 [ext_resource type="Texture2D" uid="uid://chj3rnkv3jkdh" path="res://assets/sprites/lightlight.png" id="3_qkuev"]
+[ext_resource type="AudioStream" uid="uid://b5jtod8d0mulc" path="res://assets/sounds/switchSound.mp3" id="4_wy7fm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p0o46"]
 radius = 17.0294
@@ -40,6 +41,9 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="free_light"]
 shape = SubResource("CircleShape2D_fai03")
+
+[node name="switchSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_wy7fm")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

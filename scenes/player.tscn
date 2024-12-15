@@ -860,10 +860,12 @@ bus = &"Sfx"
 
 [node name="footStep" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_523mt")
+volume_db = -5.699
 bus = &"Sfx"
 
 [node name="jumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_crj1w")
+volume_db = -4.274
 
 [node name="interactSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_55tf7")
