@@ -1326,7 +1326,6 @@ limit_right = 400
 limit_smoothed = true
 
 [node name="DarkLight" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0235294, 0.0235294, 0.0235294, 1)
 
 [node name="switches" type="Node" parent="."]
