@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=4 uid="uid://5wil1cbfnf6h"]
+[gd_scene load_steps=19 format=4 uid="uid://5wil1cbfnf6h"]
 
 [ext_resource type="Texture2D" uid="uid://dfqvlvde1cp2o" path="res://assets/sprites/world_2.png" id="1_0griw"]
+[ext_resource type="Script" path="res://scenes/canvas_layer.gd" id="1_gbpul"]
 [ext_resource type="PackedScene" uid="uid://bjs2xcg2uneim" path="res://scenes/player.tscn" id="2_pogu2"]
 [ext_resource type="PackedScene" uid="uid://b1dn6tgo6d11r" path="res://scenes/switch.tscn" id="4_hjk75"]
 [ext_resource type="PackedScene" uid="uid://c8hd1qi46qlw6" path="res://scenes/enemyPresent.tscn" id="5_4ymaw"]
@@ -542,8 +543,11 @@ texture = ExtResource("1_0griw")
 9:7/0 = 0
 9:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, -8, 8, 8, -2, 8, -8, 8)
 10:7/0 = 0
+10:7/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_yx5c4")
 11:7/0 = 0
+11:7/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_f7jsd")
 12:7/0 = 0
+12:7/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_dxkxc")
 15:7/0 = 0
 17:7/0 = 0
 18:7/0 = 0
@@ -802,8 +806,18 @@ texture = ExtResource("1_0griw")
 24:24/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_15u64"]
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_3qac0")
+
+[sub_resource type="Environment" id="Environment_2o4xh"]
+background_mode = 3
+tonemap_mode = 2
+tonemap_exposure = 0.55
+glow_enabled = true
+glow_blend_mode = 1
+glow_hdr_threshold = 0.0
+glow_hdr_scale = 0.89
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gusvb"]
 size = Vector2(23, 25.5)
@@ -811,6 +825,46 @@ size = Vector2(23, 25.5)
 [node name="lvl_tuturial" type="Node2D"]
 script = SubResource("GDScript_vcgsh")
 metadata/_edit_vertical_guides_ = [-1100.0]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_gbpul")
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20.7894, 12.4955)
+theme = SubResource("Theme_crbmc")
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = 54.5
+offset_right = 46.0
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "TRY AGAIN"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -11.5
+offset_right = 152.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU ARE DEAD AND SO IS CHRISTMAS"
 
 [node name="map" type="Node2D" parent="."]
 
@@ -834,7 +888,7 @@ tile_set = SubResource("TileSet_15u64")
 
 [node name="player" parent="." instance=ExtResource("2_pogu2")]
 z_index = 5
-position = Vector2(-729, -31)
+position = Vector2(-780, -330)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(1, 6)
@@ -850,6 +904,7 @@ position = Vector2(-360, -138)
 position = Vector2(-346, -250)
 
 [node name="DarkLight" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.0235294, 0.0235294, 0.0235294, 1)
 
 [node name="light_refill" parent="." instance=ExtResource("6_4fg2h")]
@@ -863,6 +918,9 @@ position = Vector2(77, -233)
 
 [node name="light_refill2" parent="." instance=ExtResource("6_4fg2h")]
 position = Vector2(-630, -219)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2o4xh")
 
 [node name="lvl_up" type="Area2D" parent="."]
 collision_mask = 5

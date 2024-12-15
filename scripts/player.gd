@@ -18,7 +18,9 @@ var texture_number = 0
 @export var sfx_cat_death : AudioStream
 @export var sfx_footStep : AudioStream
 @onready var foot_step: AudioStreamPlayer2D = $footStep
+@onready var interact_sound: AudioStreamPlayer2D = $interactSound
 @onready var current_animation = animation.get_animation()
+@onready var jump_sound: AudioStreamPlayer2D = $jumpSound
 
 var footstep_frames : Array = [1]
 var is_dead = false
@@ -64,12 +66,13 @@ func _physics_process(delta):
 	if (Input.is_action_pressed("interaction") and playerCanInteract and is_on_floor()):
 		animation.stop()
 		animation.play("cat_interact")
+		interact_sound.play()
 		idle_sleep_timer.start()
 		interaction_timer.start()
 		playerCanInteract = false
 	
 	# Handle jump
-	if Input.is_action_just_pressed("jump") and jump_available:
+	if Input.is_action_just_pressed("jump") and jump_available and !is_dead:
 		velocity.y = JUMP_VELOCITY
 		jump_available = false
 		if (playerMoving == false):
@@ -79,13 +82,14 @@ func _physics_process(delta):
 		playerJumping = true
 		player_collision_jumping.disabled = false
 		player_collision.disabled = true
-		
+		jump_sound.play()
+		jump_sound.pitch_scale = randf_range(0.50, 0.60)
 		idle_sleep_timer.start()
 		
 	# get direction
 	var direction = Input.get_axis("move_left", "move_right")
 	
-	if (direction != 0 and self.is_on_floor() and !is_dead):
+	if (direction != 0 and self.is_on_floor() and !is_dead and playerCanInteract):
 		foot_step.pitch_scale = randf_range(1.05, 1.1)
 		if (not foot_step.playing):
 			foot_step.play()

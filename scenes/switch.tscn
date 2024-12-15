@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1dn6tgo6d11r"]
+[gd_scene load_steps=6 format=3 uid="uid://b1dn6tgo6d11r"]
 
 [ext_resource type="Texture2D" uid="uid://ds6w76a7jv4qb" path="res://assets/sprites/world_tileset.png" id="1_4t6he"]
 [ext_resource type="Script" path="res://scripts/switch.gd" id="1_gtdco"]
+[ext_resource type="Texture2D" uid="uid://chj3rnkv3jkdh" path="res://assets/sprites/lightlight.png" id="3_qkuev"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p0o46"]
 radius = 17.0294
@@ -21,6 +22,12 @@ region_rect = Rect2(95.9763, 95.9641, 16.0501, 16.0722)
 texture = ExtResource("1_4t6he")
 region_enabled = true
 region_rect = Rect2(79.7, 96.1113, 16.3347, 16.4918)
+
+[node name="PointLight2D" type="PointLight2D" parent="on"]
+blend_mode = 2
+shadow_enabled = true
+texture = ExtResource("3_qkuev")
+texture_scale = 3.7
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 5
