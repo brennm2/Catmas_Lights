@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c8hd1qi46qlw6" path="res://scenes/enemyPresent.tscn" id="5_4ymaw"]
 [ext_resource type="PackedScene" uid="uid://co8q5c0xvnjlb" path="res://scenes/light_refill.tscn" id="6_4fg2h"]
 [ext_resource type="Script" path="res://scripts/tuturial_lvl_up.gd" id="6_y13wa"]
-[ext_resource type="PackedScene" path="res://deathScreen.tscn" id="7_ynx2j"]
+[ext_resource type="PackedScene" uid="uid://bq7b70qslmq06" path="res://deathScreen.tscn" id="7_ynx2j"]
 
 [sub_resource type="GDScript" id="GDScript_vcgsh"]
 script/source = "extends Node2D

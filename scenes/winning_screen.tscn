@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlww73340lo4k"]
+[gd_scene load_steps=3 format=3 uid="uid://dlww73340lo4k"]
 
 [ext_resource type="Theme" uid="uid://d4lwgpp1pxpaj" path="res://new_theme.tres" id="1_af2ks"]
+[ext_resource type="Script" path="res://scenes/winning_screen.gd" id="1_fq2qw"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_fq2qw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

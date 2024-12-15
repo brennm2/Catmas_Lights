@@ -1,0 +1,200 @@
+[gd_scene load_steps=6 format=3 uid="uid://cohgywgnmwx8g"]
+
+[ext_resource type="Texture2D" uid="uid://bv6nw0lu0bvkc" path="res://assets/sprites/playerCat.png" id="1_yv1le"]
+[ext_resource type="Texture2D" uid="uid://c83mvxmqpan41" path="res://assets/sprites/stone.png" id="2_d001q"]
+[ext_resource type="Texture2D" uid="uid://ds6w76a7jv4qb" path="res://assets/sprites/world_tileset.png" id="3_sdfex"]
+[ext_resource type="Texture2D" uid="uid://c54fqh4akxqj5" path="res://assets/presents/wide_presents.png" id="4_l2fau"]
+[ext_resource type="Texture2D" uid="uid://cot1kfnx5wvv4" path="res://assets/TileSet16x16px.png" id="5_tjp2k"]
+
+[node name="init_game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -311.0
+offset_right = -277.0
+offset_bottom = -271.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8.45477, 4.57917)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -280.0
+offset_right = 166.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Christmas has plunged into darkness.
+Santa has gone mad, snuffing out the tree's glowing lights.
+As the shadows close in, only you can restore the holiday cheer!
+
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -106.0
+offset_right = -335.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8.45477, 4.57917)
+
+[node name="Panel3" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 96.0001
+offset_top = -98.0
+offset_right = 136.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8.45477, 4.57917)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 118.0
+offset_top = -85.0
+offset_right = 416.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer2"]
+layout_mode = 2
+text = "Activate switches to reignite the lights,
+ and gather candies to stave off the 
+creeping dark.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/VBoxContainer2"]
+position = Vector2(253, 109)
+scale = Vector2(6.96667, 7.03333)
+texture = ExtResource("2_d001q")
+region_enabled = true
+region_rect = Rect2(0, 0, 15.8067, 15.3252)
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/VBoxContainer2"]
+position = Vector2(49, 116)
+scale = Vector2(5.78333, 5.40625)
+texture = ExtResource("3_sdfex")
+region_enabled = true
+region_rect = Rect2(96.166, 95.5941, 15.3728, 16.621)
+
+[node name="Panel4" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = 108.0
+offset_right = -235.0
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8.45477, 4.57917)
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = 137.0
+offset_right = 182.0
+offset_bottom = 268.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/VBoxContainer3"]
+position = Vector2(-99, 70)
+scale = Vector2(9.13095, 13.99)
+texture = ExtResource("4_l2fau")
+region_enabled = true
+region_rect = Rect2(45.3292, 0.90653, 14.7466, 10.2699)
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/VBoxContainer3"]
+position = Vector2(403, 72)
+scale = Vector2(9.13095, 8.66167)
+texture = ExtResource("5_tjp2k")
+region_enabled = true
+region_rect = Rect2(0.374157, 0.200233, 16.3265, 15.7999)
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer3"]
+layout_mode = 2
+text = "But beware—Santa’s gifts this year 
+are wrapped in terror and tied with blood!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -83.0
+offset_right = 30.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer4"]
+layout_mode = 2
+text = "Press E to intereact 
+with the world
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/VBoxContainer4"]
+position = Vector2(1, 91)
+scale = Vector2(7.45455, 6.54545)
+texture = ExtResource("1_yv1le")
+region_enabled = true
+region_rect = Rect2(4.49618, 685.124, 22.6465, 22.6465)
