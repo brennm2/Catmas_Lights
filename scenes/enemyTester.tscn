@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://des7vl51cbt21"]
+[gd_scene load_steps=7 format=4 uid="uid://des7vl51cbt21"]
 
 [ext_resource type="Texture2D" uid="uid://ds6w76a7jv4qb" path="res://assets/sprites/world_tileset.png" id="1_74ri4"]
 [ext_resource type="PackedScene" uid="uid://bjs2xcg2uneim" path="res://scenes/player.tscn" id="2_kj05y"]
 [ext_resource type="PackedScene" uid="uid://c8hd1qi46qlw6" path="res://scenes/enemyPresent.tscn" id="3_afyw6"]
+[ext_resource type="PackedScene" uid="uid://bq7b70qslmq06" path="res://deathScreen.tscn" id="4_ht7cl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jj8km"]
 texture = ExtResource("1_74ri4")
@@ -150,14 +151,14 @@ sources/0 = SubResource("TileSetAtlasSource_jj8km")
 tile_map_data = PackedByteArray("AAD6/wEAAAAAAAAAAAD7/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAABAAAAAAALAAEAAAAAAAAAAAAMAAEAAAAAAAAAAAANAAEAAAAAAAAAAAAOAAEAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAP//AAAAAAAAAAAQAP7/AAAAAAAAAAARAP7/AAAAAAAAAAARAP3/AAAAAAAAAAARAPz/AAAAAAAAAAASAPz/AAAAAAAAAAASAPv/AAAAAAAAAAD5/wEAAAAAAAAAAAD5/wAAAAAAAAAAAAD4/wAAAAAAAAAAAAD4////AAAAAAAAAAD3////AAAAAAAAAAD3//7/AAAAAAAAAAD3//3/AAAAAAAAAAD2//3/AAAAAAAAAAD2//z/AAAAAAAAAAD1//z/AAAAAAAAAAD1//v/AAAAAAAAAAACAAAAAAABAAAAAAACAP//AAABAAAAAAACAP7/AAABAAAAAAADAP7/AAABAAAAAAAIAP7/AAABAAAAAAAJAP7/AAABAAAAAAAKAP7/AAABAAAAAAAKAP//AAABAAAAAAAKAAAAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_x03hu")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_kj05y")]
-position = Vector2(1, -84)
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(1, 1)
-zoom = Vector2(3.5, 3.5)
-position_smoothing_enabled = true
-
 [node name="Area2D" parent="." instance=ExtResource("3_afyw6")]
 position = Vector2(153, -39)
 collision_mask = 5
+
+[node name="Control" parent="." instance=ExtResource("4_ht7cl")]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_kj05y")]
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
+[connection signal="player_died" from="CharacterBody2D" to="Control" method="_on_character_body_2d_player_died"]

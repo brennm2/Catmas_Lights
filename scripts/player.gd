@@ -2,6 +2,7 @@ extends CharacterBody2D
 @onready var player_light: PointLight2D = $playerLight
 @onready var timer: Timer = $playerLight/Timer
 
+signal player_died
 var SPEED = 100
 const JUMP_VELOCITY = -300.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -44,12 +45,13 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	player_light.texture_scale = Globals.lightScale
-	if (player_light.texture_scale > 0.7 && Globals.canLightScale && is_dead == false):
+	if (player_light.texture_scale > .7 && Globals.canLightScale && is_dead == false):
 		player_light.texture_scale -= 0.1 * delta
 		Globals.lightScale = player_light.texture_scale
 	elif (is_dead == false && player_light.texture_scale < 0.7):
 
 		is_dead = true
+		player_died.emit()
 		Globals.lightScale = 1
 		animation.play("cat_death")
 
