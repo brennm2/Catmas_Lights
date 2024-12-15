@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8hd1qi46qlw6"]
+[gd_scene load_steps=18 format=3 uid="uid://c8hd1qi46qlw6"]
 
 [ext_resource type="Script" path="res://scripts/enemy_present.gd" id="1_sjn7u"]
 [ext_resource type="Texture2D" uid="uid://cdvgsjakradsa" path="res://assets/presents/big_presents.png" id="2_i613l"]
 [ext_resource type="AudioStream" uid="uid://cqvpd2larlw8b" path="res://assets/explosion-6055.mp3" id="3_5x4t3"]
 [ext_resource type="AudioStream" uid="uid://cktxurnsmbbbm" path="res://assets/timebombbeep-93074.mp3" id="3_cuc0a"]
 [ext_resource type="Texture2D" uid="uid://bn63g6eiultj3" path="res://assets/explosion tutorial files/explosion tutorial files/explosion.png" id="4_vgcg0"]
+[ext_resource type="Texture2D" uid="uid://chj3rnkv3jkdh" path="res://assets/sprites/lightlight.png" id="6_uxls3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wxk5p"]
 radius = 13.0
@@ -106,6 +107,12 @@ animation = &"exploding"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_5x4t3")
+volume_db = -1.0
 bus = &"Sfx"
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.564706, 0.443137, 1)
+texture = ExtResource("6_uxls3")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

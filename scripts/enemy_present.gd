@@ -1,4 +1,5 @@
 extends Area2D
+@onready var point_light_2d: PointLight2D = $PointLight2D
 
 # Timer before explosion
 @export var explosion_time: float = 2
@@ -16,6 +17,7 @@ var blink_timer: Timer  # Timer for the blinking effect
 var is_blinking_red = false
 
 func _ready():
+	point_light_2d.enabled = false
 	# Initialize blinking timer
 	blink_timer = Timer.new()
 	blink_timer.one_shot = false
@@ -49,6 +51,7 @@ func _on_blink_timer_timeout():
 	is_blinking_red = !is_blinking_red
 	animated_sprite.modulate = Color(1, 0, 0) if is_blinking_red else Color(1, 1, 1)
 
+
 func _on_timer_timeout():
 	# When the timer finishes, stop blinking, play explosion sound and handle the explosion
 	print("Explosion timer timed out!")  # Debug statement
@@ -61,7 +64,7 @@ func _on_timer_timeout():
 
 	# Play explosion animation
 	animated_sprite.play("exploding")
-
+	point_light_2d.enabled = true
 	# Handle explosion damage
 	explode()
 
@@ -69,6 +72,7 @@ func _on_timer_timeout():
 	var free_timer = Timer.new()
 	free_timer.one_shot = true
 	free_timer.wait_time = 1.6   # Match the animation duration
+	animated_sprite.animation_finished
 	add_child(free_timer)
 	free_timer.timeout.connect(_on_free_timer_timeout)
 	free_timer.start()

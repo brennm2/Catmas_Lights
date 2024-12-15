@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var switch_sound: AudioStreamPlayer2D = $switchSound
 @onready var on: Sprite2D = $on
 @onready var off: Sprite2D = $off
 @export_enum("tutorial", "lvl_2", "boss") var lvl = 0
@@ -15,6 +16,8 @@ func _process(_delta: float) -> void:
 	if in_area and Input.is_action_just_pressed("interaction"):
 		off.visible = false
 		on.visible = true
+		if (light_on == false):
+			switch_sound.play()
 		light_on = true
 		if lvl == 0:
 			Globals.tutorial += 1
@@ -23,7 +26,6 @@ func _process(_delta: float) -> void:
 		if lvl == 2:
 			Globals.boss += 1
 	if light_on and in_free_area:
-		
 		Globals.canLightScale = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
