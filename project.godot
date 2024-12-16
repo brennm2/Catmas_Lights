@@ -10,10 +10,13 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
-run/main_scene="res://scenes/lvl_tuturial.tscn"
+config/name="Catmas Lights: Curse of the Tree"
+run/main_scene="res://scenes/init_game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="res://GameLogo.png"
+boot_splash/fullsize=false
+config/icon="res://GameLogo.png"
+boot_splash/minimum_display_time=3000
 
 [autoload]
 

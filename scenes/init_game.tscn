@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cohgywgnmwx8g"]
+[gd_scene load_steps=7 format=3 uid="uid://cohgywgnmwx8g"]
 
+[ext_resource type="Script" path="res://scenes/init_game.gd" id="1_664g5"]
 [ext_resource type="Texture2D" uid="uid://bv6nw0lu0bvkc" path="res://assets/sprites/playerCat.png" id="1_yv1le"]
 [ext_resource type="Texture2D" uid="uid://c83mvxmqpan41" path="res://assets/sprites/stone.png" id="2_d001q"]
 [ext_resource type="Texture2D" uid="uid://ds6w76a7jv4qb" path="res://assets/sprites/world_tileset.png" id="3_sdfex"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_664g5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -75,10 +77,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 96.0001
-offset_top = -98.0
+offset_left = 96.0
+offset_top = -103.0
 offset_right = 136.0
-offset_bottom = -58.0
+offset_bottom = -63.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(8.45477, 4.57917)
@@ -148,27 +150,37 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 35
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/VBoxContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/VBoxContainer3/HBoxContainer"]
 position = Vector2(-99, 70)
 scale = Vector2(9.13095, 13.99)
 texture = ExtResource("4_l2fau")
 region_enabled = true
 region_rect = Rect2(45.3292, 0.90653, 14.7466, 10.2699)
 
-[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/VBoxContainer3"]
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/VBoxContainer3/HBoxContainer"]
 position = Vector2(403, 72)
 scale = Vector2(9.13095, 8.66167)
 texture = ExtResource("5_tjp2k")
 region_enabled = true
-region_rect = Rect2(0.374157, 0.200233, 16.3265, 15.7999)
+region_rect = Rect2(128, 0, 15.8383, 16.8298)
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer3"]
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer3/HBoxContainer"]
 layout_mode = 2
 text = "But beware—Santa’s gifts this year 
 are wrapped in terror and tied with blood!
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "START GAME"
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
@@ -198,3 +210,5 @@ scale = Vector2(7.45455, 6.54545)
 texture = ExtResource("1_yv1le")
 region_enabled = true
 region_rect = Rect2(4.49618, 685.124, 22.6465, 22.6465)
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer3/VBoxContainer/Button" to="." method="_on_button_pressed"]

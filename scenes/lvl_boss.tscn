@@ -1711,7 +1711,7 @@ tile_set = SubResource("TileSet_mlava")
 
 [node name="player" parent="." instance=ExtResource("3_lex80")]
 z_index = 5
-position = Vector2(-1389, -594)
+position = Vector2(-1778, -9)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(1, 6)
@@ -1721,7 +1721,6 @@ limit_right = 400
 limit_smoothed = true
 
 [node name="DarkLight" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0235294, 0.0235294, 0.0235294, 1)
 
 [node name="switches" type="Node" parent="."]

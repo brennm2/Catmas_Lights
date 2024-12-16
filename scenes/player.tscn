@@ -863,18 +863,19 @@ bus = &"Sfx"
 
 [node name="footStep" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_523mt")
-volume_db = -13.29
+volume_db = -14.122
 bus = &"Sfx"
 
 [node name="jumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_crj1w")
-volume_db = -4.274
+volume_db = -9.266
 
 [node name="catHit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_8kdbk")
 
 [node name="interactSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_55tf7")
+volume_db = -4.0
 
 [node name="music_of_terror" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_dbpar")
