@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bq7b70qslmq06"]
 
 [ext_resource type="Script" path="res://death_screen.gd" id="1_oivkt"]
-[ext_resource type="Theme" uid="uid://d4lwgpp1pxpaj" path="res://new_theme.tres" id="2_7tybn"]
+[ext_resource type="Theme" uid="uid://blhbk6o8qxtj2" path="res://remaster_theme.tres" id="2_nn1o0"]
 
 [node name="Death Screen" type="Control"]
 layout_mode = 3
@@ -21,46 +21,66 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -201.0
-offset_top = -128.0
-offset_right = 220.0
-offset_bottom = 130.0
+offset_left = -210.5
+offset_top = -129.0
+offset_right = 210.5
+offset_bottom = 129.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_7tybn")
+theme = ExtResource("2_nn1o0")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer/Panel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -128.0
-offset_top = -44.5
-offset_right = 128.0
-offset_bottom = 44.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_7tybn")
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.5
+offset_top = -49.5
+offset_right = 183.5
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_nn1o0")
 theme_override_constants/separation = 35
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Control/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_7tybn")
-text = "You are dead and so is Christmas"
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("2_nn1o0")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.984314, 0, 0, 0.886275)
+theme_override_font_sizes/font_size = 40
+text = "You are dead…
+And so is Christmas"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="Button" type="Button" parent="CanvasLayer/Panel/Control/VBoxContainer"]
 process_mode = 3
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("2_7tybn")
+theme = ExtResource("2_nn1o0")
 text = "Try Again"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.5
 
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/Control/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

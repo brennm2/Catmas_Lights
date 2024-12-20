@@ -14,11 +14,17 @@ func _process(delta: float) -> void:
 
 func _on_player_player_died() -> void:
 	timer.start()
+	
+func resetLights():
+	Globals.tutorial = 0;
+	Globals.lvl_2 = 0;
+	Globals.boss = 0;
 
 func _on_button_pressed() -> void:
 	if Globals.current_scene_path:
 		get_tree().change_scene_to_file(Globals.current_scene_path)
 		Globals.lightScale = 5
+		resetLights()
 	else:
 		print("Error: Current scene path not set.")
 

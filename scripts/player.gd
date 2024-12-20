@@ -43,6 +43,7 @@ var LIGHT_4 = preload("res://assets/sprites/light4.png")
 
 func _ready() -> void:
 	timer.start()
+	
 
 func _physics_process(delta):
 	

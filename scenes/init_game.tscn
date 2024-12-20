@@ -120,7 +120,7 @@ position = Vector2(49, 116)
 scale = Vector2(5.78333, 5.40625)
 texture = ExtResource("3_sdfex")
 region_enabled = true
-region_rect = Rect2(96.166, 95.5941, 15.3728, 16.621)
+region_rect = Rect2(96.166, 96, 15.3728, 16.2151)
 
 [node name="Panel4" type="Panel" parent="CanvasLayer"]
 anchors_preset = 8
@@ -200,7 +200,9 @@ theme_override_constants/separation = 35
 layout_mode = 2
 text = "Press E to intereact 
 with the world
-"
+
+Use the arrow keys
+to move the player"
 horizontal_alignment = 1
 vertical_alignment = 1
 

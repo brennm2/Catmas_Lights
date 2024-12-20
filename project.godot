@@ -11,12 +11,11 @@ config_version=5
 [application]
 
 config/name="Catmas Lights: Curse of the Tree"
-run/main_scene="res://scenes/init_game.tscn"
+run/main_scene="res://scenes/lvl_boss.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/image="res://GameLogo.png"
 boot_splash/fullsize=false
 config/icon="res://GameLogo.png"
-boot_splash/minimum_display_time=3000
 
 [autoload]
 
