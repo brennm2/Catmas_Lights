@@ -1,6 +1,6 @@
 # gamejamgame
 
-<h3>Patch Notes</h3>
+<h2>Patch Notes</h2>
 <details>
     <summary><h3>Version 1.1</h3></summary>
   
