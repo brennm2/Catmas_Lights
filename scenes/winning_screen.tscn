@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlww73340lo4k"]
+[gd_scene load_steps=4 format=3 uid="uid://dlww73340lo4k"]
 
 [ext_resource type="Script" path="res://scenes/winning_screen.gd" id="1_fq2qw"]
-[ext_resource type="Theme" uid="uid://blhbk6o8qxtj2" path="res://remaster_theme.tres" id="2_ej2s3"]
+[ext_resource type="Theme" uid="uid://y53b87aivxwu" path="res://Second_Box_Style.tres" id="2_fdhcv"]
+[ext_resource type="Theme" uid="uid://d4lwgpp1pxpaj" path="res://new_theme.tres" id="2_k2mpp"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -29,10 +30,28 @@ grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
-theme = ExtResource("2_ej2s3")
+theme = ExtResource("2_k2mpp")
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -95.0
+offset_top = -60.0
+offset_right = 95.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_fdhcv")
+text = "PLAY AGAIN!"
+icon_alignment = 1
 
 [node name="Control" type="Control" parent="CanvasLayer/MarginContainer/Panel"]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 317.0
@@ -45,7 +64,6 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/Panel/Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.5
 offset_left = -290.0
 offset_top = -100.0
 offset_right = 290.0
@@ -77,3 +95,5 @@ text = "Thanks for playing our game!
 diogosan / bde-souz / jorteixe"
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Panel/Button" to="." method="_on_button_pressed"]

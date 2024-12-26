@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bq7b70qslmq06"]
+[gd_scene load_steps=4 format=3 uid="uid://bq7b70qslmq06"]
 
 [ext_resource type="Script" path="res://death_screen.gd" id="1_oivkt"]
-[ext_resource type="Theme" uid="uid://blhbk6o8qxtj2" path="res://remaster_theme.tres" id="2_nn1o0"]
+[ext_resource type="Theme" uid="uid://y53b87aivxwu" path="res://Second_Box_Style.tres" id="2_q5051"]
+[ext_resource type="Theme" uid="uid://d4lwgpp1pxpaj" path="res://new_theme.tres" id="2_uy1sm"]
 
 [node name="Death Screen" type="Control"]
 layout_mode = 3
@@ -27,7 +28,7 @@ offset_right = 210.5
 offset_bottom = 129.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_nn1o0")
+theme = ExtResource("2_uy1sm")
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel"]
 layout_mode = 1
@@ -55,14 +56,14 @@ offset_bottom = 49.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_nn1o0")
+theme = ExtResource("2_q5051")
 theme_override_constants/separation = 35
 
 [node name="Label" type="Label" parent="CanvasLayer/Panel/Control/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme = ExtResource("2_nn1o0")
+theme = ExtResource("2_q5051")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.984314, 0, 0, 0.886275)
 theme_override_font_sizes/font_size = 40
@@ -76,7 +77,7 @@ process_mode = 3
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("2_nn1o0")
+theme = ExtResource("2_q5051")
 text = "Try Again"
 
 [node name="Timer" type="Timer" parent="."]

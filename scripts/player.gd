@@ -57,8 +57,8 @@ func _physics_process(delta):
 		Globals.lightScale = 1
 		animation.play("cat_death")
 	
-	var volume = (5.0 - Globals.lightScale) / 2
-	music_of_terror.volume_db = lerp(-20, 0, volume)
+	var volume = (4 - Globals.lightScale) / 1.5
+	music_of_terror.volume_db = lerp(-15, 0, volume)
 	
 	if not is_on_floor():
 		if jump_available:
@@ -95,7 +95,7 @@ func _physics_process(delta):
 		player_collision_jumping.disabled = false
 		player_collision.disabled = false
 		jump_sound.play()
-		jump_sound.pitch_scale = randf_range(0.50, 0.60)
+		jump_sound.pitch_scale = randf_range(1, 1.10)
 		idle_sleep_timer.start()
 		
 	# get direction
@@ -107,7 +107,6 @@ func _physics_process(delta):
 			foot_step.play()
 	else:
 		if (foot_step.playing):
-			#foot_step.stop()
 			pass
 	# move speed and animation
 	if direction and !is_dead && playerCanInteract:
@@ -142,8 +141,21 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		else:
 			velocity.x = 0
+	if (Input.is_action_just_pressed("reset")):
+		Globals.lightScale = 5
+		resetLights()
+		Engine.time_scale = 1
+		get_tree().change_scene_to_file(Globals.current_scene_path)
 	move_and_slide()  
 	
+func _input(event : InputEvent):
+	if(Input.is_action_just_pressed("move_down") && is_on_floor()):
+		position.y += 1
+
+func resetLights():
+	Globals.tutorial = 0;
+	Globals.lvl_2 = 0;
+	Globals.boss = 0;
 
 func _on_idle_sleep_timer_timeout() -> void:
 	if (Globals.canLightScale == false): #MUDAR ISSO PARA ==

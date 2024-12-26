@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @onready var label: Label = %Label
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if (Globals.current_scene_path == "res://scenes/lvl_tuturial.tscn"):
 		label.text = str(Globals.tutorial) + " / 3"
 	elif (Globals.current_scene_path == "res://scenes/lvl_2.tscn"):

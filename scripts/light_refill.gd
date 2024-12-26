@@ -13,9 +13,6 @@ func _on_body_entered(_body):
 	animation_player.play("pickUp")
 	Globals.lightScale = 5
 	timer.start()
-	#while(point_light_2d.energy >= 0):
-		#print(point_light_2d.energy)
-		#timer.start()
 
 
 func _on_timer_timeout() -> void:

@@ -1,5 +1,6 @@
 extends Area2D
 @onready var point_light_2d: PointLight2D = $PointLight2D
+@onready var animation_player = $AnimationPlayer
 
 # Timer before explosion
 @export var explosion_time: float = 2
@@ -27,6 +28,7 @@ func _ready():
 
 	# Play idle animation initially
 	animated_sprite.play("idle")
+	#animation_player.play("idle")
 
 	# Connect the body_entered signal to handle the player's detection
 	body_entered.connect(_on_body_entered)
@@ -36,14 +38,12 @@ func _ready():
 
 func _on_body_entered(body):
 	# Detect if the player enters the Area2D
-	print("Body entered: ", body.name)  # Debug: Check if the body is detected
 	if body.is_in_group("player") and not is_exploding:
 		is_exploding = true
 		# Play beeping sound
 		audio_stream_player_2d.stream = beep_sound
 		audio_stream_player_2d.play(1.7)
 		$Timer.start(explosion_time)  # Start timer
-		print("Explosion timer started")  # Debug statement
 		blink_timer.start()  # Start blinking effect
 
 func _on_blink_timer_timeout():
@@ -52,9 +52,9 @@ func _on_blink_timer_timeout():
 	animated_sprite.modulate = Color(1, 0, 0) if is_blinking_red else Color(1, 1, 1)
 
 
+
 func _on_timer_timeout():
 	# When the timer finishes, stop blinking, play explosion sound and handle the explosion
-	print("Explosion timer timed out!")  # Debug statement
 	blink_timer.stop()
 	animated_sprite.modulate = Color(1, 1, 1)  # Reset the modulate color
 
@@ -64,7 +64,10 @@ func _on_timer_timeout():
 
 	# Play explosion animation
 	animated_sprite.play("exploding")
-	point_light_2d.enabled = true
+	#animation_player.stop()
+	animation_player.play("Explosion")
+	animation_player.speed_scale = 0.3
+	#point_light_2d.enabled = true
 	# Handle explosion damage
 	explode()
 
@@ -72,7 +75,7 @@ func _on_timer_timeout():
 	var free_timer = Timer.new()
 	free_timer.one_shot = true
 	free_timer.wait_time = 1.6   # Match the animation duration
-	animated_sprite.animation_finished
+	#animated_sprite.animation_finished
 	add_child(free_timer)
 	free_timer.timeout.connect(_on_free_timer_timeout)
 	free_timer.start()
@@ -84,7 +87,6 @@ func _on_free_timer_timeout():
 func explode():
 	# Check for colliders in the explosion range (this is handled by the Area2D)
 	for body in get_overlapping_bodies():
-		print("Exploding on: ", body.name)  # Debug: Check which bodies are hit
 		# Ensure the body can take damage
 		if body.has_method("apply_damage"):
 			body.apply_damage(explosion_damage)
