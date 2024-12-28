@@ -14,7 +14,6 @@ func _process(_delta: float) -> void:
 
 func _on_death_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and Globals.lightScale > 0.7 and playerCanTakeDamage == true:
-		print(playerCanTakeDamage)
 		body.apply_damage(damage_per_second)
 		player_in_spike = body
 		timer.start()

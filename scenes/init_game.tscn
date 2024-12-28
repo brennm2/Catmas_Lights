@@ -1,214 +1,286 @@
-[gd_scene load_steps=7 format=3 uid="uid://cohgywgnmwx8g"]
+[gd_scene load_steps=11 format=3 uid="uid://cohgywgnmwx8g"]
 
 [ext_resource type="Script" path="res://scenes/init_game.gd" id="1_664g5"]
 [ext_resource type="Texture2D" uid="uid://bv6nw0lu0bvkc" path="res://assets/sprites/playerCat.png" id="1_yv1le"]
 [ext_resource type="Texture2D" uid="uid://c83mvxmqpan41" path="res://assets/sprites/stone.png" id="2_d001q"]
+[ext_resource type="Theme" uid="uid://y53b87aivxwu" path="res://Second_Box_Style.tres" id="2_s6uo5"]
 [ext_resource type="Texture2D" uid="uid://ds6w76a7jv4qb" path="res://assets/sprites/world_tileset.png" id="3_sdfex"]
-[ext_resource type="Texture2D" uid="uid://c54fqh4akxqj5" path="res://assets/presents/wide_presents.png" id="4_l2fau"]
+[ext_resource type="Texture2D" uid="uid://cdvgsjakradsa" path="res://assets/presents/big_presents.png" id="5_f0nc4"]
 [ext_resource type="Texture2D" uid="uid://cot1kfnx5wvv4" path="res://assets/TileSet16x16px.png" id="5_tjp2k"]
+[ext_resource type="Theme" uid="uid://blhbk6o8qxtj2" path="res://remaster_theme.tres" id="7_jebhr"]
+
+[sub_resource type="Gradient" id="Gradient_jt6pa"]
+offsets = PackedFloat32Array(0, 0.493617, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0885599, 0.0885599, 0.0885599, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ls1oh"]
+gradient = SubResource("Gradient_jt6pa")
+fill = 2
+repeat = 1
 
 [node name="init_game" type="Control"]
+custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
 script = ExtResource("1_664g5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
+[node name="Control" type="Control" parent="CanvasLayer"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -366.0
-offset_top = -311.0
-offset_right = -277.0
-offset_bottom = -271.0
-grow_horizontal = 2
+offset_left = -194.0
+offset_top = -655.0
+offset_right = 1726.0
+offset_bottom = 425.0
 grow_vertical = 2
-scale = Vector2(8.45477, 4.57917)
+scale = Vector2(1.2, 1.2)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-anchors_preset = 8
+[node name="Panel5" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -155.0
-offset_top = -280.0
-offset_right = 166.0
-offset_bottom = -87.0
+offset_left = -259.5
+offset_top = 234.0
+offset_right = 259.5
+offset_bottom = 416.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 35
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_s6uo5")
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
+[node name="Label" type="Label" parent="CanvasLayer/Control/Panel5"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -202.0
+offset_top = 37.0
+offset_right = 202.0
+offset_bottom = 142.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme = ExtResource("2_s6uo5")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
 text = "Christmas has plunged into darkness.
-Santa has gone mad, snuffing out the tree's glowing lights.
-As the shadows close in, only you can restore the holiday cheer!
+Santa has gone mad, snuffing out 
+the tree's glowing lights!
 
-
-"
+As the shadows close in,
+only you can restore the holiday cheer!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel2" type="Panel" parent="CanvasLayer"]
+[node name="Panel2" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -375.0
-offset_top = -106.0
-offset_right = -335.0
-offset_bottom = -66.0
+offset_left = -475.167
+offset_top = -117.0
+offset_right = -421.167
+offset_bottom = -74.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(8.45477, 4.57917)
+theme = ExtResource("2_s6uo5")
 
-[node name="Panel3" type="Panel" parent="CanvasLayer"]
+[node name="Panel6" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 47.9999
+offset_top = -117.0
+offset_right = 102.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8.45477, 4.57917)
+theme = ExtResource("2_s6uo5")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 96.0
-offset_top = -103.0
-offset_right = 136.0
-offset_bottom = -63.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(8.45477, 4.57917)
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 118.0
-offset_top = -85.0
-offset_right = 416.0
-offset_bottom = 46.0
+offset_top = -87.0
+offset_right = 461.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 35
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer2"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer2"]
 layout_mode = 2
-text = "Activate switches to reignite the lights,
- and gather candies to stave off the 
-creeping dark.
-"
+theme = ExtResource("2_s6uo5")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+text = "Activate switches to reignite
+the lights
+
+and gather candies to stave off the 
+creeping dark."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/VBoxContainer2"]
-position = Vector2(253, 109)
-scale = Vector2(6.96667, 7.03333)
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/VBoxContainer2"]
+position = Vector2(318, 114)
+scale = Vector2(7, 7)
 texture = ExtResource("2_d001q")
 region_enabled = true
-region_rect = Rect2(0, 0, 15.8067, 15.3252)
+region_rect = Rect2(3, 3, 10, 10)
 
-[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/VBoxContainer2"]
-position = Vector2(49, 116)
-scale = Vector2(5.78333, 5.40625)
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/Control/VBoxContainer2"]
+position = Vector2(52, 111)
+scale = Vector2(5, 5)
 texture = ExtResource("3_sdfex")
 region_enabled = true
-region_rect = Rect2(96.166, 95.5941, 15.3728, 16.621)
+region_rect = Rect2(96.166, 96, 15.3728, 16.2151)
 
-[node name="Panel4" type="Panel" parent="CanvasLayer"]
+[node name="Panel4" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -315.0
-offset_top = 108.0
-offset_right = -235.0
-offset_bottom = 148.0
+offset_left = -308.0
+offset_top = 88.0
+offset_right = -234.0
+offset_bottom = 136.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(8.45477, 4.57917)
+theme = ExtResource("2_s6uo5")
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = 137.0
-offset_right = 182.0
-offset_bottom = 268.0
+offset_left = -113.667
+offset_top = 122.666
+offset_right = 125.333
+offset_bottom = 283.666
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 35
+theme_override_constants/separation = 11
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer3"]
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/VBoxContainer3/HBoxContainer"]
-position = Vector2(-99, 70)
-scale = Vector2(9.13095, 13.99)
-texture = ExtResource("4_l2fau")
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/VBoxContainer3/HBoxContainer"]
+position = Vector2(-73, 73)
+scale = Vector2(7, 7)
+texture = ExtResource("5_f0nc4")
 region_enabled = true
-region_rect = Rect2(45.3292, 0.90653, 14.7466, 10.2699)
+region_rect = Rect2(45, 0, 15, 16)
 
-[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/VBoxContainer3/HBoxContainer"]
-position = Vector2(403, 72)
-scale = Vector2(9.13095, 8.66167)
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/Control/VBoxContainer3/HBoxContainer"]
+position = Vector2(317, 75)
+scale = Vector2(7, 7)
 texture = ExtResource("5_tjp2k")
 region_enabled = true
 region_rect = Rect2(128, 0, 15.8383, 16.8298)
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer3/HBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer3/HBoxContainer"]
 layout_mode = 2
-text = "But beware—Santa’s gifts this year 
-are wrapped in terror and tied with blood!
-"
+theme = ExtResource("2_s6uo5")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+text = "But beware...
+
+Santa’s gifts this year 
+are wrapped in terror...
+and tied with blood!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/VBoxContainer3"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 9
 
-[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer3/VBoxContainer"]
+[node name="Label2" type="Label" parent="CanvasLayer/Control/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("7_jebhr")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "playing with a headset 
+is recommended!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("7_jebhr")
+theme_override_font_sizes/font_size = 30
 text = "START GAME"
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="CanvasLayer"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -296.0
-offset_top = -83.0
-offset_right = 30.0
-offset_bottom = 48.0
+offset_left = -302.167
+offset_top = -86.0001
+offset_right = -74.1666
+offset_bottom = 54.9999
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_s6uo5")
 theme_override_constants/separation = 35
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer4"]
-layout_mode = 2
-text = "Press E to intereact 
-with the world
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/VBoxContainer4"]
-position = Vector2(1, 91)
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/VBoxContainer4"]
+position = Vector2(-62, 86)
 scale = Vector2(7.45455, 6.54545)
 texture = ExtResource("1_yv1le")
 region_enabled = true
 region_rect = Rect2(4.49618, 685.124, 22.6465, 22.6465)
 
-[connection signal="pressed" from="CanvasLayer/VBoxContainer3/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer4"]
+layout_mode = 2
+theme = ExtResource("2_s6uo5")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+text = "Press E to intereact 
+with the world
+
+Use the arrow keys
+to move the player
+
+Press \"F\" to reload 
+current map"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(952.27, 533.5)
+scale = Vector2(30.3041, 17.6406)
+texture = SubResource("GradientTexture2D_ls1oh")
+
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer3/VBoxContainer/Button" to="." method="_on_button_pressed"]

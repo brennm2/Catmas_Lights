@@ -1259,7 +1259,7 @@ limit_smoothed = true
 [node name="Switches" type="Node2D" parent="."]
 
 [node name="Switch" parent="Switches" instance=ExtResource("4_hjk75")]
-position = Vector2(-360, -138)
+position = Vector2(-360, -136)
 
 [node name="Switch2" parent="Switches" instance=ExtResource("4_hjk75")]
 position = Vector2(-865, -8)

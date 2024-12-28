@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c8hd1qi46qlw6"]
+[gd_scene load_steps=22 format=3 uid="uid://c8hd1qi46qlw6"]
 
 [ext_resource type="Script" path="res://scripts/enemy_present.gd" id="1_sjn7u"]
 [ext_resource type="Texture2D" uid="uid://cdvgsjakradsa" path="res://assets/presents/big_presents.png" id="2_i613l"]
@@ -43,9 +43,9 @@ region = Rect2(192, 0, 32, 32)
 atlas = ExtResource("4_vgcg0")
 region = Rect2(224, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i7co8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_caiea"]
 atlas = ExtResource("2_i613l")
-region = Rect2(45, 16, 15, 16)
+region = Rect2(45, 0, 15, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xqp3f"]
 animations = [{
@@ -73,19 +73,157 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6n4ik")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": false,
 "name": &"exploding",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i7co8")
+"texture": SubResource("AtlasTexture_caiea")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"invisible",
+"speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_87u5t"]
+resource_name = "Explosion"
+length = 0.3
+step = 0.03
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.030303, 0.06, 0.09, 0.121212, 0.15, 0.18, 0.21, 0.24),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.12, 0.18),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.768627, 0.054902, 0.203922, 1), Color(0.980392, 0.992157, 1, 1), Color(1, 1, 0, 1), Color(0.623529, 0.0352941, 0.133333, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ru5cb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.768627, 0.054902, 0.203922, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3f0fm"]
+resource_name = "idle"
+step = 0.03
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dyhlp"]
+_data = {
+"Explosion": SubResource("Animation_87u5t"),
+"RESET": SubResource("Animation_ru5cb"),
+"idle": SubResource("Animation_3f0fm")
+}
 
 [node name="Area2D" type="Area2D"]
 collision_layer = 2
@@ -111,8 +249,15 @@ volume_db = -1.0
 bus = &"Sfx"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(1, 0.564706, 0.443137, 1)
+color = Color(0.768627, 0.054902, 0.203922, 1)
+energy = 0.0
 texture = ExtResource("6_uxls3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dyhlp")
+}
+autoplay = "Explosion"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
