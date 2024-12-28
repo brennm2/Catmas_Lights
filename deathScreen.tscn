@@ -67,7 +67,9 @@ theme = ExtResource("2_q5051")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.984314, 0, 0, 0.886275)
 theme_override_font_sizes/font_size = 40
-text = "You are dead…
+text = "
+You are dead...
+
 And so is Christmas"
 horizontal_alignment = 1
 vertical_alignment = 1
